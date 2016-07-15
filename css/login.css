@@ -1,0 +1,19 @@
+﻿html, body
+{
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+body
+{
+    background: #598084 url(../images/pattern15.png);
+    color: #474747;
+}
+.center {
+     margin: auto;
+     padding: 10px;
+     position: absolute;
+     top: 50%;
+     left: 50%;
+     transform: translate(-50%, -50%);
+}

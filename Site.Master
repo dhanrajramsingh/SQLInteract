@@ -1,0 +1,97 @@
+﻿<%@ Master Language="VB" AutoEventWireup="false" CodeBehind="Site.master.vb" Inherits="SQL_Interact.Site" %>
+
+<!DOCTYPE html>
+<html lang="en">
+<head runat="server">
+
+    <!-- Basic Page Needs
+  ================================================== -->
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<title>SQL INTERACTIVE</title>
+	<meta name="description" content="Learn SQL in an interactive environment." />
+	<meta name="author" content="Dhanraj Ramsingh" />
+	
+    <!-- Mobile Specific Metas
+  ================================================== -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    
+    <!-- CSS
+  ================================================== -->
+	<link rel="stylesheet" href="css/zerogrid.css" />
+	<link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+	<link rel="stylesheet" href="css/responsiveslides.css" />
+	
+	<link href='./images/sql-icon.gif' rel='icon' type='image/x-icon'/>
+	
+	<script src="js/jquery.min.js"></script>
+	<script src="js/responsiveslides.js"></script>
+	<script>
+	    $(function () {
+	        $("#slider").responsiveSlides({
+	            auto: true,
+	            pager: false,
+	            nav: true,
+	            speed: 500,
+	            maxwidth: 962,
+	            namespace: "centered-btns"
+	        });
+	    });
+  </script>
+
+  <asp:ContentPlaceHolder ID="HeadContent" runat="server">
+  </asp:ContentPlaceHolder>
+</head>
+
+
+<body>
+<form id="Form1" runat="server">
+<!--------------Header--------------->
+<header> 
+	<div id="logo">
+        <a href="Home.aspx">SQL Interact</a>
+    </div>
+	
+	<nav>
+		<ul>
+			<li><a href="Home.aspx">Home</a></li>
+			<li><a href="Account.aspx">myAccount</a></li>
+			<li><a href="Resources.aspx">Resources</a></li>
+        </ul>
+	</nav>
+            
+    <div class="loginDisplay">
+                <asp:LoginView ID="HeadLoginView" runat="server" EnableViewState="false">
+                    <LoggedInTemplate>
+                        Welcome <span class="bold"><asp:LoginName ID="HeadLoginName" runat="server" /></span>!
+                        [ <asp:LoginStatus ID="HeadLoginStatus" runat="server" LogoutAction="Redirect" LogoutText="Log Out" LogoutPageUrl="~/Login.aspx"/> ]
+                    </LoggedInTemplate>
+                </asp:LoginView>
+    </div>
+</header>
+
+<!--------------Content--------------->
+<section id="content">
+
+	<div class="zerogrid block">
+        <asp:ContentPlaceHolder ID="MainContent" runat="server"/>		
+				
+		<div class="row block02">
+			<div class="col16">
+				<section>
+					
+				</section>
+			</div>
+		</div>
+				
+	</div>
+</section>
+<!--------------Footer--------------->
+<footer>
+	<div class="wrapfooter">
+	<p>Copyright © 2012 - <a href="http://www.zerotheme.com/432/free-responsive-html5-css3-website-templates.html" target="_blank">Free Responsive Html5 Templates</a> by <a href="http://www.zerotheme.com" target="_blank">Zerotheme.com</a></p>
+	</div>
+</footer>
+</form>
+</body>
+</html>
