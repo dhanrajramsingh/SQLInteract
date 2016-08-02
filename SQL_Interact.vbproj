@@ -93,7 +93,6 @@
     <Content Include="About.aspx" />
     <Content Include="App_Data\ASPNetDB.mdb" />
     <Content Include="App_Data\SQLInteractDB.mdb" />
-    <Content Include="css\login.css" />
     <Content Include="css\responsive.css" />
     <Content Include="css\responsiveslides.css" />
     <Content Include="css\style.css" />
@@ -148,13 +147,14 @@
     <Content Include="js\responsiveslides.js" />
     <Content Include="Register1.aspx" />
     <Content Include="Register2.aspx" />
-    <Content Include="Styles\Site.css" />
     <Content Include="Home.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\jquery-1.4.1-vsdoc.js" />
     <Content Include="Scripts\jquery-1.4.1.js" />
     <Content Include="Scripts\jquery-1.4.1.min.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -164,7 +164,8 @@
     <Content Include="Login.aspx" />
     <Content Include="Account.aspx" />
     <Content Include="Resources.aspx" />
-    <Content Include="Introduction.aspx" />
+    <Content Include="Lesson.aspx" />
+    <Content Include="WebForm5.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="About.aspx.designer.vb">
@@ -245,11 +246,18 @@
       <DependentUpon>Resources.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
-    <Compile Include="Introduction.aspx.designer.vb">
-      <DependentUpon>Introduction.aspx</DependentUpon>
+    <Compile Include="Lesson.aspx.designer.vb">
+      <DependentUpon>Lesson.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Introduction.aspx.vb">
-      <DependentUpon>Introduction.aspx</DependentUpon>
+    <Compile Include="Lesson.aspx.vb">
+      <DependentUpon>Lesson.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="WebForm5.aspx.designer.vb">
+      <DependentUpon>WebForm5.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebForm5.aspx.vb">
+      <DependentUpon>WebForm5.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
   </ItemGroup>

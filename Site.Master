@@ -75,21 +75,17 @@
 
 	<div class="zerogrid block">
         <asp:ContentPlaceHolder ID="MainContent" runat="server"/>		
-				
-		<div class="row block02">
-			<div class="col16">
-				<section>
-					
-				</section>
-			</div>
-		</div>
-				
 	</div>
 </section>
+
 <!--------------Footer--------------->
 <footer>
 	<div class="wrapfooter">
-	<p>Copyright © 2012 - <a href="http://www.zerotheme.com/432/free-responsive-html5-css3-website-templates.html" target="_blank">Free Responsive Html5 Templates</a> by <a href="http://www.zerotheme.com" target="_blank">Zerotheme.com</a></p>
+	<p>
+        SRN:15012610<br />
+        University of Hertfordshire <br />
+        E-Learning Applications Design & Development
+    </p>
 	</div>
 </footer>
 </form>

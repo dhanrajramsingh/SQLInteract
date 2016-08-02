@@ -32,6 +32,15 @@ Partial Public Class Register2
     Protected WithEvents FNametxt As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
+    '''FirstNameValidator control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents FirstNameValidator As Global.System.Web.UI.WebControls.RequiredFieldValidator
+
+    '''<summary>
     '''LNametxt control.
     '''</summary>
     '''<remarks>
@@ -39,6 +48,15 @@ Partial Public Class Register2
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents LNametxt As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''LastNameValidator control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents LastNameValidator As Global.System.Web.UI.WebControls.RequiredFieldValidator
 
     '''<summary>
     '''GenderDDL control.
@@ -66,6 +84,15 @@ Partial Public Class Register2
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents SQLInteractDB As Global.System.Web.UI.WebControls.AccessDataSource
+
+    '''<summary>
+    '''ValidationSummary1 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents ValidationSummary1 As Global.System.Web.UI.WebControls.ValidationSummary
 
     '''<summary>
     '''Registerbtn control.

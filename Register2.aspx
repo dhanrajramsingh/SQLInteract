@@ -42,15 +42,20 @@
         <p>
             First Name:
             <asp:TextBox ID="FNametxt" runat="server"></asp:TextBox>
+            <asp:RequiredFieldValidator ID="FirstNameValidator" runat="server" 
+                ControlToValidate="FNametxt" ErrorMessage="Please enter your first name">*</asp:RequiredFieldValidator>
         </p>
         <br />
         <p>
             Last Name:<asp:TextBox ID="LNametxt" runat="server"></asp:TextBox>
+            <asp:RequiredFieldValidator ID="LastNameValidator" runat="server" 
+                ControlToValidate="LNametxt" ErrorMessage="Please enter your last name">*</asp:RequiredFieldValidator>
         </p>
         <br />
         <p>
             Gender:
             <asp:DropDownList ID="GenderDDL" runat="server">
+                <asp:ListItem>Choose gender</asp:ListItem>
                 <asp:ListItem Value="M">Male</asp:ListItem>
                 <asp:ListItem Value="F">Female</asp:ListItem>
             </asp:DropDownList>
@@ -67,9 +72,11 @@
             SelectCommand="SELECT [countryName], [countryCode] FROM [Country]">
             </asp:AccessDataSource>
         </p>
+        <asp:ValidationSummary ID="ValidationSummary1" runat="server" />
         <br />
         <p>
-            <asp:Button ID="Registerbtn" runat="server" Text="Complete Registration" />
+            <asp:Button ID="Registerbtn" runat="server" Text="Complete Registration" 
+                ToolTip="Click to store details and complete registration" />
         </p>
     </div>
     </form>

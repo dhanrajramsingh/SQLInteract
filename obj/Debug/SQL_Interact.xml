@@ -38,6 +38,38 @@ MainContent control.
 Auto-generated field.
 To modify move field declaration from designer file to code-behind file.
 </remarks>
+</member><member name="F:SQL_Interact.WebForm5.Login1">
+	<summary>
+Login1 control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:SQL_Interact.WebForm4.HFLessonID">
+	<summary>
+HFLessonID control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:SQL_Interact.WebForm4.LessonName">
+	<summary>
+LessonName control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:SQL_Interact.WebForm4.DisplayLesson">
+	<summary>
+DisplayLesson control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
 </member><member name="P:SQL_Interact.My.MyWebExtension.Application">
 	<summary>
  Returns information about the current application.
@@ -87,9 +119,25 @@ FNametxt control.
 Auto-generated field.
 To modify move field declaration from designer file to code-behind file.
 </remarks>
+</member><member name="F:SQL_Interact.Register2.FirstNameValidator">
+	<summary>
+FirstNameValidator control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
 </member><member name="F:SQL_Interact.Register2.LNametxt">
 	<summary>
 LNametxt control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:SQL_Interact.Register2.LastNameValidator">
+	<summary>
+LastNameValidator control.
 </summary>
 	<remarks>
 Auto-generated field.
@@ -119,6 +167,14 @@ SQLInteractDB control.
 Auto-generated field.
 To modify move field declaration from designer file to code-behind file.
 </remarks>
+</member><member name="F:SQL_Interact.Register2.ValidationSummary1">
+	<summary>
+ValidationSummary1 control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
 </member><member name="F:SQL_Interact.Register2.Registerbtn">
 	<summary>
 Registerbtn control.
@@ -130,6 +186,22 @@ To modify move field declaration from designer file to code-behind file.
 </member><member name="F:SQL_Interact._Default.Userlbl">
 	<summary>
 Userlbl control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:SQL_Interact._Default.UNIT1">
+	<summary>
+UNIT1 control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:SQL_Interact._Default.UNIT2">
+	<summary>
+UNIT2 control.
 </summary>
 	<remarks>
 Auto-generated field.
@@ -159,9 +231,33 @@ AccordionPane1 control.
 Auto-generated field.
 To modify move field declaration from designer file to code-behind file.
 </remarks>
+</member><member name="F:SQL_Interact._Default.Repeater1">
+	<summary>
+Repeater1 control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
 </member><member name="F:SQL_Interact._Default.AccordionPane2">
 	<summary>
 AccordionPane2 control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:SQL_Interact._Default.Repeater2">
+	<summary>
+Repeater2 control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:SQL_Interact.WebForm1.Head1">
+	<summary>
+Head1 control.
 </summary>
 	<remarks>
 Auto-generated field.

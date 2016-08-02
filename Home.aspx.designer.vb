@@ -23,6 +23,24 @@ Partial Public Class _Default
     Protected WithEvents Userlbl As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
+    '''UNIT1 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents UNIT1 As Global.System.Web.UI.WebControls.AccessDataSource
+
+    '''<summary>
+    '''UNIT2 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents UNIT2 As Global.System.Web.UI.WebControls.AccessDataSource
+
+    '''<summary>
     '''ScriptManager1 control.
     '''</summary>
     '''<remarks>
@@ -50,6 +68,15 @@ Partial Public Class _Default
     Protected WithEvents AccordionPane1 As Global.AjaxControlToolkit.AccordionPane
 
     '''<summary>
+    '''Repeater1 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents Repeater1 As Global.System.Web.UI.WebControls.Repeater
+
+    '''<summary>
     '''AccordionPane2 control.
     '''</summary>
     '''<remarks>
@@ -57,4 +84,13 @@ Partial Public Class _Default
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents AccordionPane2 As Global.AjaxControlToolkit.AccordionPane
+
+    '''<summary>
+    '''Repeater2 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents Repeater2 As Global.System.Web.UI.WebControls.Repeater
 End Class

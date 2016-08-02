@@ -38,7 +38,8 @@
             CompleteSuccessText="Step 1 of registration complete." 
             ContinueDestinationPageUrl="~/Register2.aspx" 
             CreateUserButtonText="Save Account Details" Height="487px" Width="442px" 
-            CssClass="center">
+            CssClass="center" ContinueButtonText="Continue Registration" 
+            EmailRegularExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*">
             <WizardSteps>
                 <asp:CreateUserWizardStep runat="server" />
                 <asp:CompleteWizardStep runat="server" />

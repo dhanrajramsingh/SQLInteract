@@ -11,32 +11,32 @@ Option Strict On
 Option Explicit On
 
 
-Partial Public Class WebForm1
+Partial Public Class WebForm4
 
     '''<summary>
-    '''Head1 control.
+    '''HFLessonID control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents Head1 As Global.System.Web.UI.HtmlControls.HtmlHead
+    Protected WithEvents HFLessonID As Global.System.Web.UI.WebControls.HiddenField
 
     '''<summary>
-    '''form1 control.
+    '''LessonName control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents form1 As Global.System.Web.UI.HtmlControls.HtmlForm
+    Protected WithEvents LessonName As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
-    '''Login1 control.
+    '''DisplayLesson control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents Login1 As Global.System.Web.UI.WebControls.Login
+    Protected WithEvents DisplayLesson As Global.System.Web.UI.WebControls.Label
 End Class

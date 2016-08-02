@@ -11,27 +11,27 @@ Public Class Register2
 
     Protected Sub Registerbtn_Click(ByVal sender As Object, ByVal e As EventArgs) Handles Registerbtn.Click
 
-        'create DB connection using web.config file
+        'create DB connection using connection string from web.config file
         Dim oleDbConn As New OleDb.OleDbConnection(ConfigurationManager.ConnectionStrings("SQLInteractDB").ConnectionString)
-        'write SQL statement for inserting record
+        'create variable to store SQL statement for inserting record
         Dim AddUserSql As String = "Insert into Users(userName,firstName,lastName,gender,country) Values(@userName,@firstName,@lastName,@gender,@country)"
         'command links SQL statement and database connection
-        Dim cmd As OleDbCommand = New OleDbCommand(AddUserSql, oleDbConn)
+        Dim addUsercmd As OleDbCommand = New OleDbCommand(AddUserSql, oleDbConn)
 
-        cmd.CommandType = CommandType.Text
-        'parameters point to actual values stored in front end tools
-        cmd.Parameters.AddWithValue("@userName", User.Identity.Name)
-        cmd.Parameters.AddWithValue("@firstName", FNametxt.Text)
-        cmd.Parameters.AddWithValue("@lastName", LNametxt.Text)
-        cmd.Parameters.AddWithValue("@gender", GenderDDL.Text)
-        cmd.Parameters.AddWithValue("@country", CountryDDL.SelectedValue)
+        addUsercmd.CommandType = CommandType.Text
+        'parameters point to actual values stored in front end controls
+        addUsercmd.Parameters.AddWithValue("@userName", User.Identity.Name)
+        addUsercmd.Parameters.AddWithValue("@firstName", FNametxt.Text)
+        addUsercmd.Parameters.AddWithValue("@lastName", LNametxt.Text)
+        addUsercmd.Parameters.AddWithValue("@gender", GenderDDL.Text)
+        addUsercmd.Parameters.AddWithValue("@country", CountryDDL.SelectedValue)
 
-        'open, run and close database connection
+        'open, run SQL statement and close database connection
         oleDbConn.Open()
-        cmd.ExecuteNonQuery()
+        addUsercmd.ExecuteNonQuery()
         oleDbConn.Close()
 
-        'redirect to Home Page
+        'redirect to Login Page
         Response.Redirect("Login.aspx")
     End Sub
 End Class
