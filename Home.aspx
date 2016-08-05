@@ -88,8 +88,8 @@
 			<div class="heading"><h2>Course Progress</h2></div>
 			<div class="content">
 				<div class="w3-progress-container w3-round-xlarge">
-                    <div class="w3-progressbar w3-blue w3-round-xlarge" style="width:98%">
-                        <div class="w3-center w3-text-white">98%</div>
+                    <div class="w3-progressbar w3-blue w3-round-xlarge" style="width:50%">
+                        <div class="w3-center w3-text-white">50%</div>
                     </div>
                 </div>
 			</div>

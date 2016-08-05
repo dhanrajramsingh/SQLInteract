@@ -1,9 +1,8 @@
 
 /* ---------------------Reset----------------------- */
-a,abbr,acronym,address,applet,article,aside,audio,b,blockquote,big,body,center,canvas,caption,cite,code,command,datalist,dd,del,details,dfn,dl,div,dt,em,embed,fieldset,figcaption,figure,font,footer,form,h1,h2,h3,h4,h5,h6,header,hgroup,html,i,iframe,img,ins,kbd,keygen,label,legend,li,meter,nav,object,ol,output,p,pre,progress,q,s,samp,section,small,span,source,strike,strong,sub,sup,table,tbody,tfoot,thead,th,tr,tdvideo,tt,u,ul,var{background:transparent;border:0 none;font-size:100%;margin:0;padding:0;border:0;outline:0;vertical-align:top;}
+a,abbr,acronym,address,applet,article,aside,audio,b,blockquote,big,body,center,canvas,caption,cite,code,command,datalist,dd,del,details,dfn,dl,div,dt,em,embed,fieldset,figcaption,figure,font,footer,form,h1,h2,h3,h4,h5,h6,header,hgroup,html,i,iframe,img,ins,kbd,keygen,label,legend,li,meter,nav,object,ol,output,p,pre,progress,q,s,samp,section,small,span,source,strike,strong,sub,sup,tdvideo,tt,u,ul,var{background:transparent;border:0 none;font-size:100%;margin:0;padding:0;border:0;outline:0;vertical-align:top;}
 ol, ul {list-style:none;}
 blockquote, q {quotes:none;}
-table, table td {padding:0;border:none;border-collapse:collapse;}
 img {vertical-align:top;}
 embed {vertical-align:top;}
 article, aside, audio, canvas, command, datalist, details, embed, figcaption, figure, footer, header, hgroup, keygen, meter, nav, output, progress, section, source, video {display:block;}
@@ -17,15 +16,14 @@ input, textarea, select {margin:0; padding:0px;}
 /* -------------------------------------------- */
 html, body {width:100%; padding:0; margin:0;}
 body {background: #598084 url(../images/pattern15.png);color: #474747;font: 12px/25px Arial, Helvetica, sans-serif;}
+table {border-collapse: collapse; width: 100%;}
+th, td{text-align: center;padding: 8px;}
+tr:nth-child(even){background-color: #f2f2f2}
+table tr:first-child td {font-size: 1.0625em;font-weight: bold;}
 
 /*-------------------------*/
 a{color: #598084;text-decoration: none;}
-a:hover {text-decoration: none;}
-
-a.button, input.button {	cursor: pointer;	color: #ffffff;	line-height: 14px;	font-family: Arial, Helvetica, sans-serif;	font-size: 14px;	font-weight: bold;	background: #598084;	border:1px solid #ffffff; -webkit-border-radius: 4px;-moz-border-radius: 4px;-khtml-border-radius: 4px;border-radius: 4px}
-a.button {	display: inline-block;	text-decoration: none;	padding: 6px 12px 6px 12px;}
-input.button {	margin: 0;	border: 0;	height: 24px;	padding: 0px 12px 0px 12px;}
-a.button:hover, input.button:hover {}
+a:hover{text-decoration: underline;}
 
 .loginDisplay
 {
@@ -98,14 +96,89 @@ header nav ul li:hover a{color:#ffffff;}
 
 .block{background:#ffffff;}
 
+.heading{margin-bottom: 5px; padding:10px 0px;border-bottom:1px solid #E1E1E1; border-top:1px solid #E1E1E1; padding: .5em 26px;
+    font: bold 1.6em 'Ruda' , 'Segoe UI' , 'Calibri' , 'Trebuchet MS' ,Helvetica,Verdana,sans-serif;
+    color: #4F4F4F;}
+
 .heading h1{color:#4F4F4F ;font-size:22px; line-height:25px; letter-spacing:-1px; font-weight:normal; margin:10px 0;}
 
 .block01 {padding:30px 0px;}
-.block01 section {text-align:center;}
+.block01 section{text-align:left;}
 .block01 section .heading h2{color:#4F4F4F ;font-size:22px; line-height:25px; letter-spacing:-1px; font-weight:normal; margin:10px 0;}
 .block01 section .content{color:#555555; font-weight:bold;}
 .block01 section .more{ text-align:center;}
 .block01 section .more a{ text-decoration:none; text-transform:none;}
+.block01 section .lesson .title
+{
+    padding: .5em 26px;
+    font: bold 1.6em 'Ruda' , 'Segoe UI' , 'Calibri' , 'Trebuchet MS' ,Helvetica,Verdana,sans-serif;
+    color: #4F4F4F;
+    text-decoration: underline;
+}
+.block01 section .lesson .notes{
+    padding: 0 26px;
+        padding-top: 0px;
+        padding-right: 26px;
+        padding-bottom: 0px;
+        padding-left: 26px;
+    font-size: 1.15em;
+    color: #555555;
+}
+.block01 section .lesson .datatable_title {
+	padding:.5em 0;
+	font-size:.9375em;
+	text-transform:capitalize;
+	color:#757575
+}
+.block01 section .lesson .datatable {
+	padding:.5em .75em 1em .75em
+}
+.block01 section .lesson .datatable table {
+	font-size:.85em;
+	border:1px solid #e6e5dc;
+	margin-bottom: 0;
+}
+
+.task
+{
+    padding: 0 26px;
+    padding-top: 0px;
+    padding-right: 5px;
+    padding-bottom: 0px;
+    padding-left: 26px;
+    font-size: 1.15em;
+    color: #555555;
+    border-top: 1px solid #E1E1E1;
+    border-bottom: 1px solid #E1E1E1;
+    margin-bottom: 14px;
+}
+
+.response
+{
+    padding: 0 26px;
+    padding-top: 2px;
+    padding-right: 2px;
+    padding-bottom: 8px;
+    padding-left: 26px;
+    font-size: 1.15em;
+    color: #555555;
+    border-top: 1px solid #E1E1E1;
+    border-bottom: 1px solid #E1E1E1;
+    margin-bottom: 14px;
+}
+
+.solution
+{
+    padding: 0 26px;
+    padding-top: 2px;
+    padding-right: 2px;
+    padding-bottom: 8px;
+    padding-left: 26px;
+    font-size: 1.15em;
+    color: #FF0000;
+    font-family: 'MS Sans Serif';
+}
+
 
 .block02 {background:#EDEDED; margin-bottom:20px;border-top:1px solid #E1E1E1;border-bottom:1px solid #E1E1E1;}
 .block02 section{text-align:center; padding: 20px 50px; font-size:20px;}
@@ -143,15 +216,41 @@ header nav ul li:hover a{color:#ffffff;}
 	background: -ms-linear-gradient(top, #efefef, #ddd);background: -o-linear-gradient(top, #efefef, #ddd);
 	background: linear-gradient(top, #efefef, #ddd);
 	color: #333;text-shadow: 0px 1px 1px rgba(255,255,255,1);	border: 2px solid #999999;}
-#main-content .comment input[type="submit"]:hover {
+
+.button
+{
+    cursor: pointer;
+    color: #ffffff;
+    line-height: 14px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    background: #008080;
+    border: 1px solid #ffffff;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -khtml-border-radius: 4px;
+    border-radius: 4px;
+}
+.button {display: inline-block;	text-decoration: none;	padding: 6px 12px 6px 12px;}
+.button {margin: 0;	border: 0;	height: 24px;	padding: 0px 12px 0px 12px;}
+.button:hover {
 	background: -webkit-linear-gradient(top, #eee, #ccc);	background: -moz-linear-gradient(top, #eee, #ccc);
 	background: -ms-linear-gradient(top, #eee, #ccc);	background: -o-linear-gradient(top, #eee, #ccc);
 	background: linear-gradient(top, #eee, #ccc);	border: 2px solid #bbb;}
-#main-content .comment input[type="submit"]:active {
+.button:active {
 	background: -webkit-linear-gradient(top, #ddd, #aaa);	background: -moz-linear-gradient(top, #ddd, #aaa);
 	background: -ms-linear-gradient(top, #ddd, #aaa);	background: -o-linear-gradient(top, #ddd, #aaa);
 	background: linear-gradient(top, #ddd, #aaa);	border: 2px solid #999;}
 
+.textarea
+{
+    border: 2px solid #999999;
+    padding: 8px 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    margin-bottom: 6px;
+}
 
 #sidebar{}
 #sidebar section{background: #EFEFEF; border:1px solid #E1E1E1; margin-bottom:20px;}

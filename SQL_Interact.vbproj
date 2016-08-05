@@ -92,6 +92,7 @@
   <ItemGroup>
     <Content Include="About.aspx" />
     <Content Include="App_Data\ASPNetDB.mdb" />
+    <Content Include="App_Data\Exercises.mdb" />
     <Content Include="App_Data\SQLInteractDB.mdb" />
     <Content Include="css\responsive.css" />
     <Content Include="css\responsiveslides.css" />
@@ -141,10 +142,10 @@
     <Content Include="images\thumb3.png" />
     <Content Include="images\Title.png" />
     <Content Include="images\web.png" />
-    <Content Include="js\css3-mediaqueries.js" />
-    <Content Include="js\html5.js" />
-    <Content Include="js\jquery.min.js" />
-    <Content Include="js\responsiveslides.js" />
+    <Content Include="obj\js\css3-mediaqueries.js" />
+    <Content Include="obj\js\html5.js" />
+    <Content Include="obj\js\jquery.min.js" />
+    <Content Include="obj\js\responsiveslides.js" />
     <Content Include="Register1.aspx" />
     <Content Include="Register2.aspx" />
     <Content Include="Home.aspx" />
@@ -152,6 +153,7 @@
     <Content Include="Scripts\jquery-1.4.1-vsdoc.js" />
     <Content Include="Scripts\jquery-1.4.1.js" />
     <Content Include="Scripts\jquery-1.4.1.min.js" />
+    <Content Include="Videos\What is SQL.mp4" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -290,7 +292,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>9528</DevelopmentServerPort>
+          <DevelopmentServerPort>5561</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>
