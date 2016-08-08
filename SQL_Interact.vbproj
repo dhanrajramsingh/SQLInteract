@@ -125,6 +125,8 @@
     <Content Include="images\headerbg.jpg" />
     <Content Include="images\history.png" />
     <Content Include="images\laptop.png" />
+    <Content Include="images\Learn SQL.png" />
+    <Content Include="images\Learning.jpg" />
     <Content Include="images\logo.png" />
     <Content Include="images\marker-1.gif" />
     <Content Include="images\menu-bg-act.jpg" />
@@ -133,6 +135,7 @@
     <Content Include="images\slide1.jpg" />
     <Content Include="images\slide2.jpg" />
     <Content Include="images\slide3.jpg" />
+    <Content Include="images\sql-icon.gif" />
     <Content Include="images\themes.gif" />
     <Content Include="images\thumb1.jpg" />
     <Content Include="images\thumb1.png" />
@@ -146,6 +149,12 @@
     <Content Include="obj\js\html5.js" />
     <Content Include="obj\js\jquery.min.js" />
     <Content Include="obj\js\responsiveslides.js" />
+    <Content Include="Pics\DirectorQuery.jpg" />
+    <Content Include="Pics\DirectorwithoutDistinct.jpg" />
+    <Content Include="Pics\Quiz2.jpg" />
+    <Content Include="Pics\Select Activity 1.jpg" />
+    <Content Include="Pics\Select Activity 2.jpg" />
+    <Content Include="Pics\Select Activity 3.jpg" />
     <Content Include="Register1.aspx" />
     <Content Include="Register2.aspx" />
     <Content Include="Home.aspx" />
@@ -153,6 +162,8 @@
     <Content Include="Scripts\jquery-1.4.1-vsdoc.js" />
     <Content Include="Scripts\jquery-1.4.1.js" />
     <Content Include="Scripts\jquery-1.4.1.min.js" />
+    <Content Include="Videos\DISTINCT keyword.mp4" />
+    <Content Include="Videos\The SELECT Query.mp4" />
     <Content Include="Videos\What is SQL.mp4" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -164,10 +175,9 @@
       <DependentUpon>Web.config</DependentUpon>
     </Content>
     <Content Include="Login.aspx" />
-    <Content Include="Account.aspx" />
-    <Content Include="Resources.aspx" />
+    <Content Include="Dashboard.aspx" />
     <Content Include="Lesson.aspx" />
-    <Content Include="WebForm5.aspx" />
+    <Content Include="Quiz.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="About.aspx.designer.vb">
@@ -234,18 +244,11 @@
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
-    <Compile Include="Account.aspx.designer.vb">
-      <DependentUpon>Account.aspx</DependentUpon>
+    <Compile Include="Dashboard.aspx.designer.vb">
+      <DependentUpon>Dashboard.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Account.aspx.vb">
-      <DependentUpon>Account.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
-    </Compile>
-    <Compile Include="Resources.aspx.designer.vb">
-      <DependentUpon>Resources.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Resources.aspx.vb">
-      <DependentUpon>Resources.aspx</DependentUpon>
+    <Compile Include="Dashboard.aspx.vb">
+      <DependentUpon>Dashboard.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="Lesson.aspx.designer.vb">
@@ -255,11 +258,11 @@
       <DependentUpon>Lesson.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
-    <Compile Include="WebForm5.aspx.designer.vb">
-      <DependentUpon>WebForm5.aspx</DependentUpon>
+    <Compile Include="Quiz.aspx.designer.vb">
+      <DependentUpon>Quiz.aspx</DependentUpon>
     </Compile>
-    <Compile Include="WebForm5.aspx.vb">
-      <DependentUpon>WebForm5.aspx</DependentUpon>
+    <Compile Include="Quiz.aspx.vb">
+      <DependentUpon>Quiz.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
   </ItemGroup>

@@ -1,8 +1,19 @@
-﻿<%@ Page Title="SQL INTERACT: HOME" Language="vb" MasterPageFile="~/Site.Master" AutoEventWireup="false" CodeBehind="Home.aspx.vb" Inherits="SQL_Interact._Default" %>
+﻿<%@ Page Title="SQL INTERACT: HOME" Language="vb" MaintainScrollPositionOnPostback="true" MasterPageFile="~/Site.Master" AutoEventWireup="false" CodeBehind="Home.aspx.vb" Inherits="SQL_Interact._Default" %>
 
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="ajaxToolkit" %>
 
 <asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="HeadContent">
+    <script type="text/javascript">
+    $(document).ready(function () {
+        var pos = $('.ypos input[type=hidden]').val();
+        if (pos > 0) {
+            $(window).scrollTop(pos);
+        }
+        else {
+            $(window).scrollTop(0);
+        }
+    });
+</script>
 </asp:Content>
 
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
@@ -14,6 +25,8 @@
 			<li><img src="images/slide1.jpg" alt="Image not found"/></li>
 			<li><img src="images/slide2.jpg" alt="Image not found"/></li>
 			<li><img src="images/slide3.jpg"alt="Image not found"/></li>
+            <li><img src="images/Learn SQL.png"alt="Image not found"/></li>
+            <li><img src="images/Learning.jpg"alt="Image not found"/></li>
 		</ul>
 	</div>
 </section>
@@ -32,7 +45,7 @@
 
 <div class="row block03">
     <div id="main-content" class="col-2-3">
-        <div class="heading">
+        <div class="courseheading">
             <h1>COURSE BREAKDOWN:</h1>
         </div>
         <div class="content">    
@@ -76,10 +89,19 @@
                                 <a href="Lesson.aspx?lessonID=<%# Eval("lessonID") %>"> <%# Eval("lessonName")%> </a> <br />
                             </ItemTemplate>
                             </asp:Repeater>
+                            <div id="task3"></div>
                         </Content>
                     </ajaxToolkit:AccordionPane>
                 </Panes>
             </ajaxToolkit:Accordion>
+            <br />
+            <div class="ypos">
+                <asp:HiddenField ID="ScrollBarHF" runat="server" />
+            </div>
+            <div class="warning">
+                <asp:HiddenField ID="CheckLessonIDHF" runat="server" />
+                <asp:Label ID="LessonFeedbacklbl" runat="server" Text="" />
+            </div>
         </div>
     </div>
     
@@ -88,10 +110,17 @@
 			<div class="heading"><h2>Course Progress</h2></div>
 			<div class="content">
 				<div class="w3-progress-container w3-round-xlarge">
-                    <div class="w3-progressbar w3-blue w3-round-xlarge" style="width:50%">
-                        <div class="w3-center w3-text-white">50%</div>
-                    </div>
+                    <asp:Label ID="Progresslbl" runat="server" Text=""></asp:Label>
                 </div>
+			</div>
+		</section>
+
+        <section>
+			<div class="heading"><h2>Your current lesson is:</h2></div>
+			<div class="content">
+            <div class="courseheading">
+                <asp:Label ID="CurrentLessonNamelbl" runat="server" Text=""></asp:Label>
+            </div>
 			</div>
 		</section>
     </div>

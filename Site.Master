@@ -24,9 +24,9 @@
 	
 	<link href='./images/sql-icon.gif' rel='icon' type='image/x-icon'/>
 	
-	<script src="js/jquery.min.js"></script>
-	<script src="js/responsiveslides.js"></script>
-	<script>
+	<script src="js/jquery.min.js" type="text/javascript"></script>
+	<script src="js/responsiveslides.js" type="text/javascript"></script>
+	<script type="text/javascript">
 	    $(function () {
 	        $("#slider").responsiveSlides({
 	            auto: true,
@@ -55,8 +55,7 @@
 	<nav>
 		<ul>
 			<li><a href="Home.aspx">Home</a></li>
-			<li><a href="Account.aspx">myAccount</a></li>
-			<li><a href="Resources.aspx">Resources</a></li>
+			<li><a href="Dashboard.aspx">Dashboard</a></li>
         </ul>
 	</nav>
             

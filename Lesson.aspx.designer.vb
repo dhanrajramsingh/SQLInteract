@@ -140,15 +140,6 @@ Partial Public Class WebForm4
     Protected WithEvents ShowAnsbtn As Global.System.Web.UI.WebControls.Button
 
     '''<summary>
-    '''ShowAnstxt control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents ShowAnstxt As Global.System.Web.UI.WebControls.TextBox
-
-    '''<summary>
     '''TakeQuizbtn control.
     '''</summary>
     '''<remarks>
@@ -158,6 +149,15 @@ Partial Public Class WebForm4
     Protected WithEvents TakeQuizbtn As Global.System.Web.UI.WebControls.Button
 
     '''<summary>
+    '''ShowAnstxt control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents ShowAnstxt As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
     '''ResultPanel control.
     '''</summary>
     '''<remarks>
@@ -165,4 +165,31 @@ Partial Public Class WebForm4
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents ResultPanel As Global.System.Web.UI.WebControls.Panel
+
+    '''<summary>
+    '''GridView1 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents GridView1 As Global.System.Web.UI.WebControls.GridView
+
+    '''<summary>
+    '''ExercisesDB control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents ExercisesDB As Global.System.Web.UI.WebControls.AccessDataSource
+
+    '''<summary>
+    '''SqlDataSource1 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents SqlDataSource1 As Global.System.Web.UI.WebControls.SqlDataSource
 End Class

@@ -16,10 +16,30 @@ input, textarea, select {margin:0; padding:0px;}
 /* -------------------------------------------- */
 html, body {width:100%; padding:0; margin:0;}
 body {background: #598084 url(../images/pattern15.png);color: #474747;font: 12px/25px Arial, Helvetica, sans-serif;}
-table {border-collapse: collapse; width: 100%;}
+table
+{
+    border: 1px solid #000000;
+    border-collapse: collapse;
+    width: 100%;
+    margin-right: 10px;
+    height: 100%;
+}
 th, td{text-align: center;padding: 8px;}
-tr:nth-child(even){background-color: #f2f2f2}
-table tr:first-child td {font-size: 1.0625em;font-weight: bold;}
+tr:nth-child(even)
+{
+    background-color: #C0C0C0;
+}
+table tr:first-child td
+{
+    font-size: 1.0625em;
+    font-weight: bold;
+    background-color: #808080;
+}
+
+video {
+    max-width: 100%;
+    height: auto;
+}
 
 /*-------------------------*/
 a{color: #598084;text-decoration: none;}
@@ -54,6 +74,15 @@ a:hover{text-decoration: underline;}
 .bold
 {
     font-weight: bold;
+}
+
+.center
+{
+    margin: auto;
+    padding: 10px;
+    position: absolute;
+    left: 40%;
+    height: 45px;
 }
 
 /*-------------header */
@@ -100,6 +129,10 @@ header nav ul li:hover a{color:#ffffff;}
     font: bold 1.6em 'Ruda' , 'Segoe UI' , 'Calibri' , 'Trebuchet MS' ,Helvetica,Verdana,sans-serif;
     color: #4F4F4F;}
 
+.courseheading{margin-bottom: 5px; padding:10px 0px;border-bottom:1px solid #E1E1E1; border-top:1px solid #E1E1E1; 
+    font: bold 1.6em 'Ruda' , 'Segoe UI' , 'Calibri' , 'Trebuchet MS' ,Helvetica,Verdana,sans-serif;
+    color: #4F4F4F;}
+
 .heading h1{color:#4F4F4F ;font-size:22px; line-height:25px; letter-spacing:-1px; font-weight:normal; margin:10px 0;}
 
 .block01 {padding:30px 0px;}
@@ -131,13 +164,26 @@ header nav ul li:hover a{color:#ffffff;}
 	color:#757575
 }
 .block01 section .lesson .datatable {
-	padding:.5em .75em 1em .75em
+	padding:.5em .75em 1em .75em; margin-bottom: 0;
+    margin-right: 10px;
 }
-.block01 section .lesson .datatable table {
-	font-size:.85em;
-	border:1px solid #e6e5dc;
-	margin-bottom: 0;
+.block01 section .lesson .datatable table
+{
+    padding: 4px;
+    font-size: .85em;
+    border: 1px solid #e6e5dc;
+   
 }
+.block01 section .lesson .notes .definition
+{
+    margin: 1em;
+    padding: .75em;
+    background: #C0C0C0;
+    -webkit-border-radius: .25em .25em .25em .25em;
+    -moz-border-radius: .25em .25em .25em .25em;
+    border-radius: .25em .25em .25em .25em;
+}
+
 
 .task
 {
@@ -146,7 +192,7 @@ header nav ul li:hover a{color:#ffffff;}
     padding-right: 5px;
     padding-bottom: 0px;
     padding-left: 26px;
-    font-size: 1.15em;
+    font-size: 1.3em;
     color: #555555;
     border-top: 1px solid #E1E1E1;
     border-bottom: 1px solid #E1E1E1;
@@ -160,7 +206,21 @@ header nav ul li:hover a{color:#ffffff;}
     padding-right: 2px;
     padding-bottom: 8px;
     padding-left: 26px;
-    font-size: 1.15em;
+    font-size: 1.3em;
+    color: #555555;
+    border-top: 1px solid #E1E1E1;
+    border-bottom: 1px solid #E1E1E1;
+    margin-bottom: 14px;
+}
+
+.response
+{
+    padding: 0 26px;
+    padding-top: 2px;
+    padding-right: 2px;
+    padding-bottom: 8px;
+    padding-left: 26px;
+    font-size: 1.3em;
     color: #555555;
     border-top: 1px solid #E1E1E1;
     border-bottom: 1px solid #E1E1E1;
@@ -174,20 +234,38 @@ header nav ul li:hover a{color:#ffffff;}
     padding-right: 2px;
     padding-bottom: 8px;
     padding-left: 26px;
-    font-size: 1.15em;
+    font-size: 1.3em;
     color: #FF0000;
     font-family: 'MS Sans Serif';
+}
+
+.warning
+{
+    font-size: 1.6em;
+    color: #FF0000;
+    font-family: 'MS Sans Serif';
+    text-align: center;
 }
 
 
 .block02 {background:#EDEDED; margin-bottom:20px;border-top:1px solid #E1E1E1;border-bottom:1px solid #E1E1E1;}
 .block02 section{text-align:center; padding: 20px 50px; font-size:20px;}
 
-.block03 {padding-bottom: 20px;}
+.block03{padding-bottom: 20px;}
 .block03 section{}
 .block03 section img{border-bottom:2px solid #262A2D; border-top:2px solid #262A2D;}
 .block03 section .heading{font-size:14px; font-style:italic;}
-.block03 section a{ text-decoration:underline; padding-left:10px;}
+.block03 section a
+{
+    text-decoration: none;
+    padding-left: 10px;
+    color: #333333;
+}
+.block03 section a:hover
+{
+    color: #808000;
+    text-decoration: underline;
+}
 
 .block04 {background:#EDEDED; margin-bottom:20px;border-top:1px solid #E1E1E1;border-bottom:1px solid #E1E1E1;}
 .block04 section{text-align:left; padding: 5px 10px; font-size:20px;}
@@ -250,7 +328,12 @@ header nav ul li:hover a{color:#ffffff;}
     font-family: Arial, Helvetica, sans-serif;
     font-size: 14px;
     margin-bottom: 6px;
+    overflow-x:auto;
+    height:100%;
+    width:100%
 }
+
+#sidebar{}
 
 #sidebar{}
 #sidebar section{background: #EFEFEF; border:1px solid #E1E1E1; margin-bottom:20px;}
@@ -321,7 +404,7 @@ footer .wrapfooter{
 .w3-progress-container
 {
     width: 100%;
-    height: 1.5em;
+    height: 1.8em;
     position: relative;
     background-color: #C0C0C0;
 }
@@ -386,7 +469,12 @@ footer .wrapfooter{
 .w3-text-sand,.w3-hover-text-sand:hover{color:#fdf5e6!important}
 .w3-text-teal,.w3-hover-text-teal:hover{color:#009688!important}
 .w3-text-yellow,.w3-hover-text-yellow:hover{color:#d2be0e!important}
-.w3-text-white,.w3-hover-text-white:hover{color:#fff!important}
+.w3-text-white, .w3-hover-text-white:hover
+{
+    color: #fff !important;
+    font-size: 1em;
+    font-weight: bold;
+}
 .w3-text-black,.w3-hover-text-black:hover{color:#000!important}
 .w3-text-grey,.w3-hover-text-grey:hover{color:#757575!important}
 .w3-text-light-grey,.w3-hover-text-light-grey:hover{color:#f1f1f1!important}

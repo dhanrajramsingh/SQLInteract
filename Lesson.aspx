@@ -29,8 +29,11 @@
     </div>
 
     <div class="row block02">
+        <div class="center">
         <asp:Button ID="NextPagebtn" runat="server" Text="Next Lesson" 
-            BackColor="Silver" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" />
+            BackColor="Gray" BorderColor="#999999" BorderStyle="Solid" 
+            BorderWidth="1px" CssClass="button" />
+        </div>
         <br />
         <div class="col08">
             <asp:Panel ID="ActivityPanel" runat="server">
@@ -46,15 +49,16 @@
                 <div class="response">
                     Your Answer:
                     <br />
-                    <asp:TextBox ID="UserInputtxt" runat="server" BorderColor="Black" 
+                    <div style="overflow-x:auto;height:100%;width:100%">
+                        <asp:TextBox ID="UserInputtxt" runat="server" BorderColor="Black" 
                             BorderStyle="Solid" BorderWidth="1px" Rows="5" TextMode="MultiLine" 
                             ToolTip="Do not enter additional spaces in your response" 
                             Width="392px" BackColor="#D1D1A5" CssClass="textarea"></asp:TextBox>
+                    </div>
                     <br />
                     <asp:Button ID="Submitbtn" runat="server" BackColor="Gray" 
                         BorderStyle="Solid" BorderWidth="1px" Text="Submit Answer" 
                         CssClass="button" BorderColor="#999999" />
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <asp:Button ID="NextQuestbtn" runat="server" BackColor="Gray" 
                         BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" Text="Next Question" 
                         Visible="False" CssClass="button" />
@@ -68,24 +72,32 @@
                         BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" CssClass="button" 
                         Text="Show Answer" ToolTip="Click to show answer for the current task." 
                         Visible="False" />
-                    &nbsp;<br />
+                    &nbsp;<asp:Button ID="TakeQuizbtn" runat="server" BackColor="Gray" 
+                        BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" CssClass="button" 
+                        Text="Take Quiz" Visible="False" />
+                    <br />
                     <br />
                     &nbsp;&nbsp;
-                    <asp:TextBox ID="ShowAnstxt" runat="server" BackColor="#D1D1A5" 
-                        BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" CssClass="textarea" 
-                        ReadOnly="True" Rows="5" TextMode="MultiLine" Visible="False" Width="358px"></asp:TextBox>
+                    <div style="overflow-x:auto;height:100%;width:100%">
+                        <asp:TextBox ID="ShowAnstxt" runat="server" BackColor="#D1D1A5" 
+                            BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" CssClass="textarea" 
+                            ReadOnly="True" Rows="5" TextMode="MultiLine" Visible="False" Width="358px"></asp:TextBox>
+                    </div>
                     <br />
                     <br />
-                    <asp:Button ID="TakeQuizbtn" runat="server" BackColor="Gray" 
-                        BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" Text="Take Quiz" 
-                        Visible="False" CssClass="button" />
                 </div>
             </asp:Panel>
         
         </div>
         <div class="col08">
-        
             <asp:Panel ID="ResultPanel" runat="server">
+                <div class="datatable_title"><h1>RESULTS OF QUERY:</h1></div>
+                <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False">
+                </asp:GridView>
+                <asp:AccessDataSource ID="ExercisesDB" runat="server" 
+                    DataFile="~/App_Data/Exercises.mdb" 
+                    SelectCommand="SELECT * FROM [Animated_Movies]"></asp:AccessDataSource>
+                <asp:SqlDataSource ID="SqlDataSource1" runat="server"></asp:SqlDataSource>
             </asp:Panel>
         
         </div>

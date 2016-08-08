@@ -93,4 +93,49 @@ Partial Public Class _Default
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents Repeater2 As Global.System.Web.UI.WebControls.Repeater
+
+    '''<summary>
+    '''ScrollBarHF control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents ScrollBarHF As Global.System.Web.UI.WebControls.HiddenField
+
+    '''<summary>
+    '''CheckLessonIDHF control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents CheckLessonIDHF As Global.System.Web.UI.WebControls.HiddenField
+
+    '''<summary>
+    '''LessonFeedbacklbl control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents LessonFeedbacklbl As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''Progresslbl control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents Progresslbl As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''CurrentLessonNamelbl control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents CurrentLessonNamelbl As Global.System.Web.UI.WebControls.Label
 End Class
