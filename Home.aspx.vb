@@ -8,6 +8,8 @@ Public Class _Default
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
 
         CheckLessonIDHF.Value = Request.Params("LessonCheck")
+
+        'Check if any page redirected to homepage with string query parameter of 1
         If String.Equals(CheckLessonIDHF.Value, "1") Then
             LessonFeedbacklbl.Visible = True
             LessonFeedbacklbl.Text = "This lesson you clicked is not accessible until all preceding lessons are completed!"

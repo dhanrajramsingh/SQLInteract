@@ -40,6 +40,12 @@
                 <div class="heading">
                     <asp:Label ID="ActivityTitlelbl" runat="server"></asp:Label>
                 </div>
+                <div style = "padding-left: 26px;font-size: 1.1em;color: #555555;">
+                    <img src="Pics/Select Activity 3.jpg" alt = "Image not found" />
+                    <br />
+                    <p>&nbsp;</p>
+                    <p>All tasks refer the table, <b>Animated_Movies</b>, shown above.</p>
+                </div>
                 <br />
                 <div class="task">
                     <b>Task:</b>
@@ -60,7 +66,7 @@
                         BorderStyle="Solid" BorderWidth="1px" Text="Submit Answer" 
                         CssClass="button" BorderColor="#999999" />
                     <asp:Button ID="NextQuestbtn" runat="server" BackColor="Gray" 
-                        BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" Text="Next Question" 
+                        BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" Text="Next Task" 
                         Visible="False" CssClass="button" />
                     <br />
                 </div>
@@ -97,7 +103,6 @@
                 <asp:AccessDataSource ID="ExercisesDB" runat="server" 
                     DataFile="~/App_Data/Exercises.mdb" 
                     SelectCommand="SELECT * FROM [Animated_Movies]"></asp:AccessDataSource>
-                <asp:SqlDataSource ID="SqlDataSource1" runat="server"></asp:SqlDataSource>
             </asp:Panel>
         
         </div>

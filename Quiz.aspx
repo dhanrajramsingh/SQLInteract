@@ -9,19 +9,24 @@
             <asp:HiddenField ID="LessonIDHF" runat="server" />
             <asp:HiddenField ID="IndexHF" runat="server" />
             <asp:HiddenField ID="NumCorrectHF" runat="server"/>
+            <asp:HiddenField ID="QuestionNumberHF" runat="server" />
             <asp:HiddenField ID="MaxIndexHF" runat="server" />
+            <asp:HiddenField ID="QuizIDHF" runat="server" />
+            <asp:HiddenField ID="TotalQuestionsHF" runat="server" />
             <div class="heading">
                 <asp:Label ID="QuizTitlelbl" runat="server" />
             </div>
             
             <br />
-            <div style="padding-left:26px">
+            <div style="padding-left:26px;font-size: 1.1em;color: #555555;">
                 <asp:Label ID="QuizPiclbl" runat="server" Text="" />
+                <br />
+                <br />
+                <p>With reference to the above table, <b><asp:Label ID="TableNamelbl" runat="server" Text="" /></b></p>
             </div>
             <br />
             <div class="task" style="margin-top: 10px">
-                <p>With reference to the above table, <b>Customers</b></p>
-                <b><asp:Label ID="QuestionNumberlbl" runat="server" Text="Question "></asp:Label></b>
+                <b><asp:Label ID="QuestionNumberlbl" runat="server"></asp:Label></b>
                 <p><asp:Label ID="QuizQuestionlbl" runat="server" /></p>
                 <br />
             </div>
@@ -39,9 +44,6 @@
                     <asp:Button ID="Submitbtn" runat="server" BackColor="Gray" 
                         BorderStyle="Solid" BorderWidth="1px" Text="Submit Answer" 
                         CssClass="button" BorderColor="#999999" />
-                    <asp:Button ID="NextQuestbtn" runat="server" BackColor="Gray" 
-                        BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" Text="Next Question" 
-                        Visible="False" CssClass="button" />
                     <br />
                     <br />
                     <asp:Panel ID="QuizSummaryPanel" runat="server" Visible="False">

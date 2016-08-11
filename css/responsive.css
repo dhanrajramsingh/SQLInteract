@@ -13,7 +13,7 @@ html
 img{
 	max-width:100%;
 	height: auto;
-    width: auto\9; /* ie8 */
+    width: 446px; /* ie8 */
 }
 
 @media only screen and (min-width: 768px) and (max-width: 959px) {

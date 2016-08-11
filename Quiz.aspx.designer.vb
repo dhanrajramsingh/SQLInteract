@@ -41,6 +41,15 @@ Partial Public Class WebForm5
     Protected WithEvents NumCorrectHF As Global.System.Web.UI.WebControls.HiddenField
 
     '''<summary>
+    '''QuestionNumberHF control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents QuestionNumberHF As Global.System.Web.UI.WebControls.HiddenField
+
+    '''<summary>
     '''MaxIndexHF control.
     '''</summary>
     '''<remarks>
@@ -48,6 +57,24 @@ Partial Public Class WebForm5
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents MaxIndexHF As Global.System.Web.UI.WebControls.HiddenField
+
+    '''<summary>
+    '''QuizIDHF control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents QuizIDHF As Global.System.Web.UI.WebControls.HiddenField
+
+    '''<summary>
+    '''TotalQuestionsHF control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents TotalQuestionsHF As Global.System.Web.UI.WebControls.HiddenField
 
     '''<summary>
     '''QuizTitlelbl control.
@@ -66,6 +93,15 @@ Partial Public Class WebForm5
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents QuizPiclbl As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''TableNamelbl control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents TableNamelbl As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
     '''QuestionNumberlbl control.
@@ -102,15 +138,6 @@ Partial Public Class WebForm5
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents Submitbtn As Global.System.Web.UI.WebControls.Button
-
-    '''<summary>
-    '''NextQuestbtn control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents NextQuestbtn As Global.System.Web.UI.WebControls.Button
 
     '''<summary>
     '''QuizSummaryPanel control.

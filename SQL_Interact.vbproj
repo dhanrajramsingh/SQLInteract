@@ -55,6 +55,7 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.DataVisualization" />
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Web" />
@@ -149,9 +150,11 @@
     <Content Include="obj\js\html5.js" />
     <Content Include="obj\js\jquery.min.js" />
     <Content Include="obj\js\responsiveslides.js" />
+    <Content Include="Pics\DirectorPeteDocter.jpg" />
     <Content Include="Pics\DirectorQuery.jpg" />
     <Content Include="Pics\DirectorwithoutDistinct.jpg" />
     <Content Include="Pics\Quiz2.jpg" />
+    <Content Include="Pics\Quiz3.jpg" />
     <Content Include="Pics\Select Activity 1.jpg" />
     <Content Include="Pics\Select Activity 2.jpg" />
     <Content Include="Pics\Select Activity 3.jpg" />
@@ -162,9 +165,13 @@
     <Content Include="Scripts\jquery-1.4.1-vsdoc.js" />
     <Content Include="Scripts\jquery-1.4.1.js" />
     <Content Include="Scripts\jquery-1.4.1.min.js" />
+    <Content Include="Videos\BETWEEN operator.mp4" />
     <Content Include="Videos\DISTINCT keyword.mp4" />
+    <Content Include="Videos\LIKE operator.mp4" />
+    <Content Include="Videos\Logical operators.mp4" />
     <Content Include="Videos\The SELECT Query.mp4" />
     <Content Include="Videos\What is SQL.mp4" />
+    <Content Include="Videos\WHERE clause.mp4" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
