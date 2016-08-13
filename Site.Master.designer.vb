@@ -32,6 +32,24 @@ Partial Public Class Site
     Protected WithEvents Form1 As Global.System.Web.UI.HtmlControls.HtmlForm
 
     '''<summary>
+    '''Homelink control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents Homelink As Global.System.Web.UI.WebControls.LinkButton
+
+    '''<summary>
+    '''Dashboardlink control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents Dashboardlink As Global.System.Web.UI.WebControls.LinkButton
+
+    '''<summary>
     '''HeadLoginView control.
     '''</summary>
     '''<remarks>

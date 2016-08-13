@@ -6,12 +6,131 @@ Public Class WebForm2
     Inherits System.Web.UI.Page
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+        'To be used in drop down list data source queries
         UserNameHF.Value = User.Identity.Name
+
+        'create DB connection to SQLInteractDB database
+        Dim oleDbConn1 As New OleDbConnection(ConfigurationManager.ConnectionStrings("SQLInteractDB").ConnectionString)
+
+        '----------------------------------------------------------------------------------------------------------------------------------
+        'This code checks the QuizAttempt table for the latest quiz attempt to test if the score is zero and then checks
+        'the CheckQuizComplete table to verify the number of responses given is equal to the number of questions in the quiz.
+        'If the previous conditions are true then this quiz is incomplete and its details are deleted from the database.
+        Dim Refreshpage As Boolean = False
+
+        If Not (IsPostBack) Then
+            'open database connection
+            oleDbConn1.Open()
+
+            'creates SQL statement to obtain records
+            Dim GetAttemptIDSql As String = "SELECT * FROM [QuizAttempt] WHERE userName=@userName ORDER BY dateTaken DESC"
+            Dim GetAttemptIDCmd As OleDbCommand = New OleDbCommand(GetAttemptIDSql, oleDbConn1)
+            'define parameters for SQL command
+            GetAttemptIDCmd.Parameters.AddWithValue("@userName", User.Identity.Name)
+
+            'create Adapter that grabs data from DB
+            Dim GetAttemptIDAdapter As New OleDbDataAdapter
+            'creates DataSet that stores captured DB data
+            Dim GetAttemptIDData As New DataSet
+            GetAttemptIDAdapter.SelectCommand = GetAttemptIDCmd
+            GetAttemptIDAdapter.Fill(GetAttemptIDData)
+
+            Dim AttemptID As String = ""
+            Dim Score As String = ""
+
+            If GetAttemptIDData.Tables(0).Rows.Count <> 0 Then
+                'create variables to store specific DataBase data
+                AttemptID = GetAttemptIDData.Tables(0).Rows(0).Item("attemptID").ToString
+                Score = GetAttemptIDData.Tables(0).Rows(0).Item("score").ToString
+            End If
+
+            'close database connection
+            oleDbConn1.Close()
+
+            'open database connection
+            oleDbConn1.Open()
+
+            'creates SQL statement to obtain records
+            Dim GetResponsesSql As String = "SELECT * FROM [CheckQuizComplete] WHERE attemptID=@attemptID"
+            Dim GetResponsesCmd As OleDbCommand = New OleDbCommand(GetResponsesSql, oleDbConn1)
+            'define parameters for SQL command
+            GetResponsesCmd.Parameters.AddWithValue("@attemptID", AttemptID)
+
+            'create Adapter that grabs data from DB
+            Dim GetResponsesAdapter As New OleDbDataAdapter
+            'creates DataSet that stores captured DB data
+            Dim GetResponsesData As New DataSet
+            GetResponsesAdapter.SelectCommand = GetResponsesCmd
+            GetResponsesAdapter.Fill(GetResponsesData)
+
+            Dim NumberAnswered As String = ""
+            Dim NumQuestions As String = ""
+
+            If GetResponsesData.Tables(0).Rows.Count <> 0 Then
+                'create variables to store specific DataBase data
+                NumberAnswered = GetResponsesData.Tables(0).Rows(0).Item("numberAnswered").ToString
+                NumQuestions = GetResponsesData.Tables(0).Rows(0).Item("numQuestions").ToString
+            End If
+
+            'close database connection
+            oleDbConn1.Close()
+
+            Dim ScoreNumber = 0
+            If String.Equals(Score, "") Then
+                ScoreNumber = 0
+            Else
+                ScoreNumber = Convert.ToInt32(Score)
+            End If
+
+            If ScoreNumber = 0 Then
+                If GetResponsesData.Tables(0).Rows.Count <> 0 Then
+                    If Convert.ToInt32(NumberAnswered) <> Convert.ToInt32(NumQuestions) Then
+                        'open database connection
+                        oleDbConn1.Open()
+
+                        'create variable to store SQL statement for inserting record
+                        Dim DeleteSql As String = "Delete From Responses Where attemptID=@attemptID"
+                        'command links SQL statement and database connection
+                        Dim Deletecmd As OleDbCommand = New OleDbCommand(DeleteSql, oleDbConn1)
+
+                        Deletecmd.CommandType = CommandType.Text
+                        'parameters point to actual values stored in front end controls
+                        Deletecmd.Parameters.AddWithValue("@attemptID", AttemptID)
+
+                        'run SQL statement and close database connection
+                        Deletecmd.ExecuteNonQuery()
+                        oleDbConn1.Close()
+                        Refreshpage = True
+                    End If
+                Else
+                    'open database connection
+                    oleDbConn1.Open()
+
+                    'create variable to store SQL statement for inserting record
+                    Dim DeleteSql As String = "Delete From QuizAttempt Where attemptID=@attemptID"
+                    'command links SQL statement and database connection
+                    Dim Deletecmd As OleDbCommand = New OleDbCommand(DeleteSql, oleDbConn1)
+
+                    Deletecmd.CommandType = CommandType.Text
+                    'parameters point to actual values stored in front end controls
+                    Deletecmd.Parameters.AddWithValue("@attemptID", AttemptID)
+
+                    'run SQL statement and close database connection
+                    Deletecmd.ExecuteNonQuery()
+                    oleDbConn1.Close()
+                End If
+            End If
+        End If
+
+        If Refreshpage Then
+            Response.Redirect(Request.RawUrl)
+        End If
+        '----------------------------------------------------------------------------------------------------------------------
 
         'create DB connection to ASPNetDB database
         Dim oleDbCon As New OleDbConnection(ConfigurationManager.ConnectionStrings("ASPNetDB").ConnectionString)
 
-        'Retrieve Last Login Date
+        'Retrieve Account Create Date
         'opens DB connection
         oleDbCon.Open()
         'create SQL command
@@ -40,26 +159,19 @@ Public Class WebForm2
             DateCreatedlbl.Text = LastLoginDateValue & " minutes ago"
         End If
 
+        '-----------------------------------------------------------------------------------------------------------------------------
         Dim LessonID As Integer = 2
+
         If String.Equals(LessonNameDDL.SelectedValue, "") Then
-            ChooseLessonlbl.Visible = False
-            LessonNameDDL.Visible = False
-            QuizHistoryPanel.Visible = False
-            Feedbacklbl.Visible = True
-            Feedbacklbl.Text = "Sorry no quiz history to display."
             LessonID = 2
+            LessonIDHF.Value = LessonID
         Else
-            ChooseLessonlbl.Visible = True
-            LessonNameDDL.Visible = True
-            QuizHistoryChart.Visible = True
-            QuizHistoryPanel.Visible = True
-            Feedbacklbl.Visible = False
             Dim getDDLValue = LessonNameDDL.SelectedValue
             LessonID = CInt(getDDLValue)
+            LessonIDHF.Value = LessonID
         End If
 
-        'create DB connection to SQLInteractDB database
-        Dim oleDbConn1 As New OleDbConnection(ConfigurationManager.ConnectionStrings("SQLInteractDB").ConnectionString)
+        '------------------------------------------------------------------------------------------------------------------------
 
         'Bind QuizHistoryRepeater to datasource
         'open connection
@@ -78,20 +190,56 @@ Public Class WebForm2
         QuizHistoryRepeater.DataSource = QuizData.Tables(0)
         QuizHistoryRepeater.DataBind()
         oleDbConn1.Close()
+        Feedbacklbl.Text = "Sorry no quiz history to display."
         If QuizData.Tables(0).Rows.Count = 0 Then
+            QuizAttemptPanel.Visible = False
             ChooseLessonlbl.Visible = False
             LessonNameDDL.Visible = False
             QuizHistoryChart.Visible = False
             QuizHistoryPanel.Visible = False
+            QuizAttemptDLL.Visible = False
+            QuizAttemptlbl.Visible = False
             Feedbacklbl.Visible = True
         Else
+            QuizAttemptPanel.Visible = True
             ChooseLessonlbl.Visible = True
             LessonNameDDL.Visible = True
             QuizHistoryChart.Visible = True
-            Feedbacklbl.Visible = False
+            QuizAttemptDLL.Visible = True
+            QuizAttemptlbl.Visible = True
             QuizHistoryPanel.Visible = True
+            Feedbacklbl.Visible = False
+        End If
+        '-----------------------------------------------------------------------------------------------------------------------------
+        'When Dropdown List is initially rendered its selected value is an empty string. Set attempt order to 1
+        Dim attemptOrder As Integer = 1
+        If String.Equals(QuizAttemptDLL.SelectedValue, "") Then
+            attemptOrder = 1
+        Else
+            Dim getDDLValue = QuizAttemptDLL.SelectedValue
+            attemptOrder = CInt(getDDLValue)
         End If
 
+        'Bind QuizAttemptRepeater to datasource
+        'open connection
+        oleDbConn1.Open()
+        'define SQL
+        Dim QuizAttemptSql As String = "SELECT * FROM [QuestionResponse] WHERE userName = @userName AND attemptOrder = @attemptOrder AND lessonID=@lessonID ORDER BY questionOrder"
+        'define command
+        Dim QuizAttemptCmd As OleDbCommand = New OleDbCommand(QuizAttemptSql, oleDbConn1)
+        QuizAttemptCmd.Parameters.AddWithValue("@userName", User.Identity.Name)
+        QuizAttemptCmd.Parameters.AddWithValue("@attemptOrder", attemptOrder)
+        QuizAttemptCmd.Parameters.AddWithValue("@lessonID", LessonID)
+        Dim QuizAttemptAdapter As New OleDbDataAdapter
+        Dim QuizAttemptData As New DataSet
+        QuizAttemptAdapter.SelectCommand = QuizAttemptCmd
+        QuizAttemptAdapter.Fill(QuizAttemptData)
+        'creating connection between repeater and dataset
+        QuizAttemptRepeater.DataSource = QuizAttemptData.Tables(0)
+        QuizAttemptRepeater.DataBind()
+        oleDbConn1.Close()
+
+        '-----------------------------------------------------------------------------------------------------------------------------
         'Calculate course progress for Progress Bar
 
         'open database connection
@@ -139,6 +287,9 @@ Public Class WebForm2
         Dim Progress As Integer = CInt((numCompleted / GetTotalLessonsData.Tables(0).Rows.Count) * 100)
 
         Progresslbl.Text = "<div class=""w3-progressbar w3-blue w3-round-xlarge"" style=""width:" & Progress & "%"">" & " <div class=""w3-center w3-text-white"">" & Progress & "%</div> </div>"
+        '--------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
 
     End Sub
 
@@ -169,4 +320,25 @@ Public Class WebForm2
 
     End Sub
 
+    Public Sub QuizAttemptSub(ByVal sender As Object, ByVal e As System.Web.UI.WebControls.RepeaterItemEventArgs)
+        'create variables for Front End items
+        Dim QuestionOrderLabel As Label = CType(e.Item.FindControl("QuestionOrderlbl"), Label)
+        Dim QuestionLabel As Label = CType(e.Item.FindControl("Questionlbl"), Label)
+        Dim ResponseLabel As Label = CType(e.Item.FindControl("Responselbl"), Label)
+        Dim StatusLabel As Label = CType(e.Item.FindControl("Statuslbl"), Label)
+
+
+        'define variables for data items
+        Dim row As DataRowView = CType(e.Item.DataItem, DataRowView)
+        Dim questionOrderDB As String = row("questionOrder").ToString()
+        Dim questionDB As String = row("questionText").ToString()
+        Dim responseDB As String = row("response").ToString()
+        Dim statusDB As String = row("status").ToString()
+
+        'join data values with front end items
+        QuestionOrderLabel.Text = questionOrderDB
+        QuestionLabel.Text = questionDB
+        ResponseLabel.Text = responseDB
+        StatusLabel.Text = statusDB
+    End Sub
 End Class

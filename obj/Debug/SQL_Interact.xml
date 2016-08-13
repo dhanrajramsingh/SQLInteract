@@ -22,6 +22,22 @@ Form1 control.
 Auto-generated field.
 To modify move field declaration from designer file to code-behind file.
 </remarks>
+</member><member name="F:SQL_Interact.Site.Homelink">
+	<summary>
+Homelink control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:SQL_Interact.Site.Dashboardlink">
+	<summary>
+Dashboardlink control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
 </member><member name="F:SQL_Interact.Site.HeadLoginView">
 	<summary>
 HeadLoginView control.
@@ -206,6 +222,14 @@ HFLessonID control.
 Auto-generated field.
 To modify move field declaration from designer file to code-behind file.
 </remarks>
+</member><member name="F:SQL_Interact.WebForm4.Videolbl">
+	<summary>
+Videolbl control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
 </member><member name="F:SQL_Interact.WebForm4.LessonName">
 	<summary>
 LessonName control.
@@ -217,14 +241,6 @@ To modify move field declaration from designer file to code-behind file.
 </member><member name="F:SQL_Interact.WebForm4.DisplayLesson">
 	<summary>
 DisplayLesson control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:SQL_Interact.WebForm4.Videolbl">
-	<summary>
-Videolbl control.
 </summary>
 	<remarks>
 Auto-generated field.
@@ -350,6 +366,14 @@ UserNameHF control.
 Auto-generated field.
 To modify move field declaration from designer file to code-behind file.
 </remarks>
+</member><member name="F:SQL_Interact.WebForm2.LessonIDHF">
+	<summary>
+LessonIDHF control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
 </member><member name="F:SQL_Interact.WebForm2.DateCreatedlbl">
 	<summary>
 DateCreatedlbl control.
@@ -425,6 +449,102 @@ To modify move field declaration from designer file to code-behind file.
 </member><member name="F:SQL_Interact.WebForm2.QuizHistoryChart">
 	<summary>
 QuizHistoryChart control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:SQL_Interact.WebForm2.QuizAttemptlbl">
+	<summary>
+QuizAttemptlbl control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:SQL_Interact.WebForm2.QuizAttemptDLL">
+	<summary>
+QuizAttemptDLL control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:SQL_Interact.WebForm2.QuizAttemptOrder">
+	<summary>
+QuizAttemptOrder control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:SQL_Interact.WebForm2.AttemptOrder">
+	<summary>
+AttemptOrder control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:SQL_Interact.WebForm2.QuizAttemptPanel">
+	<summary>
+QuizAttemptPanel control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:SQL_Interact.WebForm2.QuizAttemptRepeater">
+	<summary>
+QuizAttemptRepeater control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:SQL_Interact.WebForm2.panel1">
+	<summary>
+panel1 control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:SQL_Interact.WebForm2.CompletedGridView">
+	<summary>
+CompletedGridView control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:SQL_Interact.WebForm2.LessonsCompleted">
+	<summary>
+LessonsCompleted control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:SQL_Interact.WebForm2.panelContainer">
+	<summary>
+panelContainer control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:SQL_Interact.WebForm2.NotCompletedGridView">
+	<summary>
+NotCompletedGridView control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:SQL_Interact.WebForm2.NotCompleted">
+	<summary>
+NotCompleted control.
 </summary>
 	<remarks>
 Auto-generated field.
@@ -551,22 +671,6 @@ Userlbl control.
 Auto-generated field.
 To modify move field declaration from designer file to code-behind file.
 </remarks>
-</member><member name="F:SQL_Interact._Default.UNIT1">
-	<summary>
-UNIT1 control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:SQL_Interact._Default.UNIT2">
-	<summary>
-UNIT2 control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
 </member><member name="F:SQL_Interact._Default.ScriptManager1">
 	<summary>
 ScriptManager1 control.
@@ -650,6 +754,22 @@ To modify move field declaration from designer file to code-behind file.
 </member><member name="F:SQL_Interact._Default.CurrentLessonNamelbl">
 	<summary>
 CurrentLessonNamelbl control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:SQL_Interact._Default.QuizFeedRepeater">
+	<summary>
+QuizFeedRepeater control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:SQL_Interact._Default.NoQuizlbl">
+	<summary>
+NoQuizlbl control.
 </summary>
 	<remarks>
 Auto-generated field.

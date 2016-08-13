@@ -70,7 +70,7 @@ Public Class WebForm5
             TotalQuestionsHF.Value = GetQuizPicData.Tables(0).Rows(0).Item("numQuestions").ToString
             Dim TableName As String = GetQuizPicData.Tables(0).Rows(0).Item("tableName").ToString
 
-            QuizPiclbl.Text = "<img src=""" & PicURL & """ height=500 width=700 />"
+            QuizPiclbl.Text = "<img src=""" & PicURL & """ width=""500"" height=""400"" />"
             TableNamelbl.Text = TableName
             QuestionNumberlbl.Text = "Question " & (QuestionNumberHF.Value) & " out of " & TotalQuestionsHF.Value
 
@@ -78,17 +78,16 @@ Public Class WebForm5
             oleDbCon.Close()
         End If
 
-
-
         If Not (IsPostBack) Then 'Ensures it is not a page refresh from postback
             'open database connection
             oleDbCon.Open()
 
             'creates SQL statement to obtain records
-            Dim GetAttemptOrderSql As String = "SELECT * FROM [QuizAttempt] WHERE quizID=@quizID ORDER BY dateTaken DESC"
+            Dim GetAttemptOrderSql As String = "SELECT * FROM [QuizAttempt] WHERE quizID=@quizID AND userName=@userName ORDER BY dateTaken DESC"
             Dim GetAttemptOrderCmd As OleDbCommand = New OleDbCommand(GetAttemptOrderSql, oleDbCon)
             'define parameters for SQL command
             GetAttemptOrderCmd.Parameters.AddWithValue("@quizID", QuizIDHF.Value)
+            GetAttemptOrderCmd.Parameters.AddWithValue("@userName", User.Identity.Name)
 
             'create Adapter that grabs data from DB
             Dim GetAttemptOrderAdapter As New OleDbDataAdapter
@@ -232,6 +231,7 @@ Public Class WebForm5
 
         'create variables to store specific DataBase data
         Dim attemptID As String = GetAttemptIDData.Tables(0).Rows(0).Item("attemptID").ToString
+        Dim attemptOrderDB As String = GetAttemptIDData.Tables(0).Rows(0).Item("attemptOrder").ToString
 
         'close database connection
         oleDbCon.Close()
@@ -272,13 +272,14 @@ Public Class WebForm5
                 oleDbCon.Close()
 
                 'create variable to store SQL statement for inserting record
-                Dim AddScoreSql As String = "Insert into QuizAttempt(attemptID,userName,quizID,score,dateTaken) Values(@attemptID,@userName,@quizID,@score,@dateTaken)"
+                Dim AddScoreSql As String = "Insert into QuizAttempt(attemptID,attemptOrder,userName,quizID,score,dateTaken) Values(@attemptID,@attemptOrder,@userName,@quizID,@score,@dateTaken)"
                 'command links SQL statement and database connection
                 Dim addScorecmd As OleDbCommand = New OleDbCommand(AddScoreSql, oleDbCon)
 
                 addScorecmd.CommandType = CommandType.Text
                 'parameters point to actual values stored in front end controls
                 addScorecmd.Parameters.AddWithValue("@attemptID", attemptID)
+                addScorecmd.Parameters.AddWithValue("@attemptOrder", attemptOrderDB)
                 addScorecmd.Parameters.AddWithValue("@userName", User.Identity.Name)
                 addScorecmd.Parameters.AddWithValue("@quizID", quizID)
                 addScorecmd.Parameters.AddWithValue("@score", Score)
@@ -325,13 +326,14 @@ Public Class WebForm5
                 oleDbCon.Close()
 
                 'create variable to store SQL statement for inserting record
-                Dim AddScoreSql As String = "Insert into QuizAttempt(attemptID,userName,quizID,score,dateTaken) Values(@attemptID,@userName,@quizID,@score,@dateTaken)"
+                Dim AddScoreSql As String = "Insert into QuizAttempt(attemptID,attemptOrder,userName,quizID,score,dateTaken) Values(@attemptID,@attemptOrder,@userName,@quizID,@score,@dateTaken)"
                 'command links SQL statement and database connection
                 Dim addScorecmd As OleDbCommand = New OleDbCommand(AddScoreSql, oleDbCon)
 
                 addScorecmd.CommandType = CommandType.Text
                 'parameters point to actual values stored in front end controls
                 addScorecmd.Parameters.AddWithValue("@attemptID", attemptID)
+                addScorecmd.Parameters.AddWithValue("@attemptOrder", attemptOrderDB)
                 addScorecmd.Parameters.AddWithValue("@userName", User.Identity.Name)
                 addScorecmd.Parameters.AddWithValue("@quizID", quizID)
                 addScorecmd.Parameters.AddWithValue("@score", Score)
@@ -431,10 +433,11 @@ Public Class WebForm5
         oleDbCon.Open()
 
         'creates SQL statement to obtain records
-        Dim GetQuizAttemptSql As String = "SELECT * FROM [QuizAttempt] WHERE quizID=@quizID"
+        Dim GetQuizAttemptSql As String = "SELECT * FROM [QuizAttempt] WHERE quizID=@quizID AND userName=@userName"
         Dim GetQuizAttemptCmd As OleDbCommand = New OleDbCommand(GetQuizAttemptSql, oleDbCon)
         'define parameters for SQL command
         GetQuizAttemptCmd.Parameters.AddWithValue("@quizID", QuizIDHF.Value)
+        GetQuizAttemptCmd.Parameters.AddWithValue("@userName", User.Identity.Name)
 
         'create Adapter that grabs data from DB
         Dim GetQuizAttemptAdapter As New OleDbDataAdapter
@@ -511,5 +514,10 @@ Public Class WebForm5
         End If
 
         Response.Redirect("Lesson.aspx?lessonID=" & LessonIDHF.Value + 1)
+    End Sub
+
+    Protected Sub Page_UnLoad(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Unload
+
+
     End Sub
 End Class

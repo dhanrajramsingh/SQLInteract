@@ -8,9 +8,13 @@
     <asp:HiddenField ID="IndexHF" runat="server" Value="0" />
 
     <asp:HiddenField ID="HFLessonID" runat="server" />
-
+    <div class="row block02">
+        <div class="col16" style="margin: auto">
+            <asp:Label ID="Videolbl" runat="server" Text=""></asp:Label>
+        </div>
+    </div>
     <div class="row block01">
-        <div class="col09">
+        <div class="col16">
         <section>
             <div class="lesson">
                 <div class="title">
@@ -22,9 +26,6 @@
                 </div>
             </div>
         </section>
-        </div>
-        <div class="col07">
-            <asp:Label ID="Videolbl" runat="server" Text=""></asp:Label>
         </div>
     </div>
 
@@ -40,7 +41,7 @@
                 <div class="heading">
                     <asp:Label ID="ActivityTitlelbl" runat="server"></asp:Label>
                 </div>
-                <div style = "padding-left: 26px;font-size: 1.1em;color: #555555;">
+                <div style = "padding-left: 26px;font-size: 1.1em;color: #555555;width:auto;padding-right: 5px">
                     <img src="Pics/Select Activity 3.jpg" alt = "Image not found" />
                     <br />
                     <p>&nbsp;</p>
@@ -55,13 +56,12 @@
                 <div class="response">
                     Your Answer:
                     <br />
-                    <div style="overflow-x:auto;height:100%;width:100%">
+                    <div style="overflow-x:auto;height:auto;width:95%">
                         <asp:TextBox ID="UserInputtxt" runat="server" BorderColor="Black" 
                             BorderStyle="Solid" BorderWidth="1px" Rows="5" TextMode="MultiLine" 
                             ToolTip="Do not enter additional spaces in your response" 
-                            Width="392px" BackColor="#D1D1A5" CssClass="textarea"></asp:TextBox>
+                            Width="235px" BackColor="#D1D1A5" CssClass="textarea"></asp:TextBox>
                     </div>
-                    <br />
                     <asp:Button ID="Submitbtn" runat="server" BackColor="Gray" 
                         BorderStyle="Solid" BorderWidth="1px" Text="Submit Answer" 
                         CssClass="button" BorderColor="#999999" />
@@ -73,7 +73,6 @@
                 <div class="solution">
                     <asp:Label ID="Feedbacklbl" runat="server"></asp:Label>
                     <br />
-                    <br />
                     <asp:Button ID="ShowAnsbtn" runat="server" BackColor="Gray" 
                         BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" CssClass="button" 
                         Text="Show Answer" ToolTip="Click to show answer for the current task." 
@@ -82,12 +81,11 @@
                         BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" CssClass="button" 
                         Text="Take Quiz" Visible="False" />
                     <br />
-                    <br />
-                    &nbsp;&nbsp;
-                    <div style="overflow-x:auto;height:100%;width:100%">
+                    &nbsp;&nbsp;<div style="overflow-x:auto;height:auto;width:95%">
                         <asp:TextBox ID="ShowAnstxt" runat="server" BackColor="#D1D1A5" 
                             BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" CssClass="textarea" 
-                            ReadOnly="True" Rows="5" TextMode="MultiLine" Visible="False" Width="358px"></asp:TextBox>
+                            ReadOnly="True" Rows="5" TextMode="MultiLine" Visible="False" 
+                            Width="235px"></asp:TextBox>
                     </div>
                     <br />
                     <br />

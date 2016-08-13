@@ -1,6 +1,15 @@
 ﻿<%@ Page Title="" Language="vb" MaintainScrollPositionOnPostback="true" AutoEventWireup="false" MasterPageFile="~/Site.Master" CodeBehind="Quiz.aspx.vb" Inherits="SQL_Interact.WebForm5" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
+<script type="text/javascript">
+    var needToConfirm = true;
+
+    window.onbeforeunload = confirmExit;
+    function confirmExit() {
+        if (needToConfirm)
+            return "You have attempted to leave this page. If this quiz is incomplete its details will not be saved. Do you still want to leave?";
+    }
+</script>
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
@@ -22,7 +31,10 @@
                 <asp:Label ID="QuizPiclbl" runat="server" Text="" />
                 <br />
                 <br />
-                <p>With reference to the above table, <b><asp:Label ID="TableNamelbl" runat="server" Text="" /></b></p>
+                <p>
+                    With reference to the above table, 
+                    <b><asp:Label ID="TableNamelbl" runat="server" Text="" /></b>
+                </p>
             </div>
             <br />
             <div class="task" style="margin-top: 10px">
@@ -34,16 +46,16 @@
             <div class="response">
                     Your Answer:
                     <br />
-                    <div style="overflow-x:auto;height:100%;width:100%">
+                    <div style="overflow-x:auto;height:auto;width:95%">
                         <asp:TextBox ID="UserInputtxt" runat="server" BorderColor="Black" 
                             BorderStyle="Solid" BorderWidth="1px" Rows="5" TextMode="MultiLine" 
                             ToolTip="Do not enter additional spaces in your response" 
-                            Width="392px" BackColor="#D1D1A5" CssClass="textarea"></asp:TextBox>
+                            Width="235px" BackColor="#D1D1A5" CssClass="textarea" Height="77px"></asp:TextBox>
                     </div>
                     <br />
                     <asp:Button ID="Submitbtn" runat="server" BackColor="Gray" 
                         BorderStyle="Solid" BorderWidth="1px" Text="Submit Answer" 
-                        CssClass="button" BorderColor="#999999" />
+                        CssClass="button" BorderColor="#999999" OnClientClick="needToConfirm = false;" />
                     <br />
                     <br />
                     <asp:Panel ID="QuizSummaryPanel" runat="server" Visible="False">
@@ -79,7 +91,7 @@
                     <br />
                     <asp:Button ID="NextLessonbtn" runat="server" BackColor="Gray" 
                         BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" Text="Next Lesson" 
-                        Visible="False" CssClass="button" />
+                        Visible="False" CssClass="button" OnClientClick="needToConfirm = false;" />
                 </div>
         </div>
     </div>

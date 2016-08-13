@@ -7,7 +7,7 @@
     $(document).ready(function () {
         var pos = $('.ypos input[type=hidden]').val();
         if (pos > 0) {
-            $(window).scrollTop(pos);
+            $(window).scrollTop(document.body.scrollHeight);
         }
         else {
             $(window).scrollTop(0);
@@ -44,19 +44,12 @@
 </div>
 
 <div class="row block03">
-    <div id="main-content" class="col-2-3">
+    <div id="main-content" class="col09">
         <div class="courseheading">
             <h1>COURSE BREAKDOWN:</h1>
         </div>
+        
         <div class="content">    
-            <asp:AccessDataSource ID="UNIT1" runat="server" 
-                DataFile="~/App_Data/SQLInteractDB.mdb" SelectCommand="SELECT * FROM [Unit1_Lessons]">
-            </asp:AccessDataSource>
-
-            <asp:AccessDataSource ID="UNIT2" runat="server" 
-                DataFile="~/App_Data/SQLInteractDB.mdb" SelectCommand="SELECT * FROM [Unit2_Lessons]">
-            </asp:AccessDataSource>
-
             <asp:ScriptManager ID="ScriptManager1" runat="server">
             </asp:ScriptManager>    
 
@@ -71,9 +64,14 @@
                             <div>UNIT 1: SINGLE TABLE QUERIES</div>
                         </Header>
                         <Content>
-                            <asp:Repeater ID="Repeater1" runat="server" DataSourceID="UNIT1" >
+                            <asp:Repeater ID="Repeater1" runat="server" OnItemDataBound="Unit1Sub">
                             <ItemTemplate>
-                                <a href="Lesson.aspx?lessonID=<%# Eval("lessonID") %>"> <%# Eval("lessonName")%> </a> <br />
+                                <div class="col07">
+                                    <div class="repeaterelement">
+                                        <span style=" float:left"><asp:Label ID="Lessonslbl" runat="server" Text=""></asp:Label></span>
+                                        <span style=" float:right"><asp:Image ID="LockUnlockImage" runat="server" Width="35px" Height="35px" /></span>
+                                    </div>
+                                </div>
                             </ItemTemplate>
                             </asp:Repeater>
                         </Content>
@@ -84,20 +82,26 @@
                             <div>UNIT 2: AGGREGATE FUNCTIONS</div>
                         </Header>
                         <Content>
-                            <asp:Repeater ID="Repeater2" runat="server" DataSourceID="UNIT2">
+                            <asp:Repeater ID="Repeater2" runat="server" OnItemDataBound="Unit2Sub">
                             <ItemTemplate>
-                                <a href="Lesson.aspx?lessonID=<%# Eval("lessonID") %>"> <%# Eval("lessonName")%> </a> <br />
+                                <div class="col07">
+                                    <div class="repeaterelement">
+                                        <span style=" float:left"><asp:Label ID="Lessonslbl2" runat="server" Text=""></asp:Label></span>
+                                        <span style=" float:right"><asp:Image ID="LockUnlockImage2" runat="server" Width="35px" Height="35px" /></span>
+                                    </div>
+                                </div>
                             </ItemTemplate>
                             </asp:Repeater>
-                            <div id="task3"></div>
                         </Content>
                     </ajaxToolkit:AccordionPane>
                 </Panes>
             </ajaxToolkit:Accordion>
             <br />
+            
             <div class="ypos">
                 <asp:HiddenField ID="ScrollBarHF" runat="server" />
             </div>
+            
             <div class="warning">
                 <asp:HiddenField ID="CheckLessonIDHF" runat="server" />
                 <asp:Label ID="LessonFeedbacklbl" runat="server" Text="" />
@@ -105,7 +109,7 @@
         </div>
     </div>
     
-    <div id="sidebar" class="col-1-3">
+    <div id="sidebar" class="col07">
 		<section>
 			<div class="heading"><h2>Course Progress</h2></div>
 			<div class="content">
@@ -122,6 +126,21 @@
                 <asp:Label ID="CurrentLessonNamelbl" runat="server" Text=""></asp:Label>
             </div>
 			</div>
+		</section>
+
+        <section>
+			<div class="heading"><h2>Quiz Feed:</h2></div>
+			    <div class="content">
+                    
+                        <asp:Repeater ID="QuizFeedRepeater" runat="server" OnItemDataBound="QuizFeedSub">
+                            <ItemTemplate>
+                                <asp:Label ID="QuizFeedLbl" runat="server" Text=""></asp:Label><br /><br />
+                            </ItemTemplate>
+                        </asp:Repeater>
+                   
+			            <asp:Label ID="NoQuizlbl" runat="server"></asp:Label>
+                   
+			    </div>
 		</section>
     </div>
 </div>

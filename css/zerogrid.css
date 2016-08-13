@@ -24,7 +24,7 @@
     .zerogrid .col07                    { width: 400px; }
     .zerogrid .col08                    { width: 460px; }
     .zerogrid .col09                    { width: 520px; }
-    .zerogrid .col10                    { width: 580px; }
+    .zerogrid .col10                    { width: 560px; }
     .zerogrid .col11                    { width: 640px; }
     .zerogrid .col12                    { width: 700px; }
     .zerogrid .col13                    { width: 760px; }
@@ -73,7 +73,7 @@
         .zerogrid .col06                   { width: 268px; }
         .zerogrid .col07                   { width: 316px; }
         .zerogrid .col08                   { width: 364px; }
-        .zerogrid .col09                   { width: 412px; }
+        .zerogrid .col09                   { width: 408px; }
         .zerogrid .col10                   { width: 460px; }
         .zerogrid .col11                   { width: 508px; }
         .zerogrid .col12                   { width: 556px; }
@@ -121,7 +121,7 @@
         .zerogrid .col04,
         .zerogrid .col05,
         .zerogrid .col06,
-        .zerogrid .col07,
+        
         .zerogrid .col08,
         .zerogrid .col09,
         .zerogrid .col10,
@@ -133,6 +133,8 @@
         .zerogrid .col16,
         .zerogrid .col-1-3,
         .zerogrid .col-2-3  { width: 300px; }
+        
+        .zerogrid .col07{width:260px}
 
         /* Offsets */
         .zerogrid .offset01,
@@ -150,7 +152,6 @@
         .zerogrid .offset13,
         .zerogrid .offset14,
         .zerogrid .offset15 { margin-left: 0; }
-
     }
 
 
@@ -171,7 +172,7 @@
         .zerogrid .col04,
         .zerogrid .col05,
         .zerogrid .col06,
-        .zerogrid .col07,
+        
         .zerogrid .col08,
         .zerogrid .col09,
         .zerogrid .col10,
@@ -183,6 +184,8 @@
         .zerogrid .col16,
         .zerogrid .col-1-3,
         .zerogrid .col-2-3 { width: 420px; }
+        
+        .zerogrid .col07{width: 380px}
     }
 	
 

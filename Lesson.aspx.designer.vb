@@ -32,6 +32,15 @@ Partial Public Class WebForm4
     Protected WithEvents HFLessonID As Global.System.Web.UI.WebControls.HiddenField
 
     '''<summary>
+    '''Videolbl control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents Videolbl As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
     '''LessonName control.
     '''</summary>
     '''<remarks>
@@ -48,15 +57,6 @@ Partial Public Class WebForm4
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents DisplayLesson As Global.System.Web.UI.WebControls.Label
-
-    '''<summary>
-    '''Videolbl control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents Videolbl As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
     '''NextPagebtn control.

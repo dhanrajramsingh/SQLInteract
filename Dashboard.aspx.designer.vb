@@ -23,6 +23,15 @@ Partial Public Class WebForm2
     Protected WithEvents UserNameHF As Global.System.Web.UI.WebControls.HiddenField
 
     '''<summary>
+    '''LessonIDHF control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents LessonIDHF As Global.System.Web.UI.WebControls.HiddenField
+
+    '''<summary>
     '''DateCreatedlbl control.
     '''</summary>
     '''<remarks>
@@ -111,6 +120,60 @@ Partial Public Class WebForm2
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents QuizHistoryChart As Global.System.Web.UI.DataVisualization.Charting.Chart
+
+    '''<summary>
+    '''QuizAttemptlbl control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents QuizAttemptlbl As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''QuizAttemptDLL control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents QuizAttemptDLL As Global.System.Web.UI.WebControls.DropDownList
+
+    '''<summary>
+    '''QuizAttemptOrder control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents QuizAttemptOrder As Global.System.Web.UI.WebControls.AccessDataSource
+
+    '''<summary>
+    '''AttemptOrder control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents AttemptOrder As Global.System.Web.UI.WebControls.AccessDataSource
+
+    '''<summary>
+    '''QuizAttemptPanel control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents QuizAttemptPanel As Global.System.Web.UI.WebControls.Panel
+
+    '''<summary>
+    '''QuizAttemptRepeater control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents QuizAttemptRepeater As Global.System.Web.UI.WebControls.Repeater
 
     '''<summary>
     '''panel1 control.
