@@ -110,6 +110,30 @@ TotalQuestionsHF control.
 Auto-generated field.
 To modify move field declaration from designer file to code-behind file.
 </remarks>
+</member><member name="F:SQL_Interact.WebForm5.QuizIntroPanel">
+	<summary>
+QuizIntroPanel control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:SQL_Interact.WebForm5.ConfirmButton">
+	<summary>
+ConfirmButton control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:SQL_Interact.WebForm5.QuizPanel">
+	<summary>
+QuizPanel control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
 </member><member name="F:SQL_Interact.WebForm5.QuizTitlelbl">
 	<summary>
 QuizTitlelbl control.
@@ -118,9 +142,9 @@ QuizTitlelbl control.
 Auto-generated field.
 To modify move field declaration from designer file to code-behind file.
 </remarks>
-</member><member name="F:SQL_Interact.WebForm5.QuizPiclbl">
+</member><member name="F:SQL_Interact.WebForm5.QuizImage">
 	<summary>
-QuizPiclbl control.
+QuizImage control.
 </summary>
 	<remarks>
 Auto-generated field.
@@ -145,6 +169,14 @@ To modify move field declaration from designer file to code-behind file.
 </member><member name="F:SQL_Interact.WebForm5.QuizQuestionlbl">
 	<summary>
 QuizQuestionlbl control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:SQL_Interact.WebForm5.Progresslbl">
+	<summary>
+Progresslbl control.
 </summary>
 	<remarks>
 Auto-generated field.
@@ -214,9 +246,25 @@ IndexHF control.
 Auto-generated field.
 To modify move field declaration from designer file to code-behind file.
 </remarks>
+</member><member name="F:SQL_Interact.WebForm4.TaskNumberHF">
+	<summary>
+TaskNumberHF control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
 </member><member name="F:SQL_Interact.WebForm4.HFLessonID">
 	<summary>
 HFLessonID control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:SQL_Interact.WebForm4.NumTaskAttemptsHF">
+	<summary>
+NumTaskAttemptsHF control.
 </summary>
 	<remarks>
 Auto-generated field.
@@ -270,6 +318,22 @@ ActivityTitlelbl control.
 Auto-generated field.
 To modify move field declaration from designer file to code-behind file.
 </remarks>
+</member><member name="F:SQL_Interact.WebForm4.Progresslbl">
+	<summary>
+Progresslbl control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:SQL_Interact.WebForm4.ActivityNumberlbl">
+	<summary>
+ActivityNumberlbl control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
 </member><member name="F:SQL_Interact.WebForm4.ActivityInstructionlbl">
 	<summary>
 ActivityInstructionlbl control.
@@ -302,9 +366,49 @@ NextQuestbtn control.
 Auto-generated field.
 To modify move field declaration from designer file to code-behind file.
 </remarks>
-</member><member name="F:SQL_Interact.WebForm4.Feedbacklbl">
+</member><member name="F:SQL_Interact.WebForm4.InfoPanel">
 	<summary>
-Feedbacklbl control.
+InfoPanel control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:SQL_Interact.WebForm4.CorrectPanel">
+	<summary>
+CorrectPanel control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:SQL_Interact.WebForm4.CorrectFeedbacklbl">
+	<summary>
+CorrectFeedbacklbl control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:SQL_Interact.WebForm4.WrongPanel">
+	<summary>
+WrongPanel control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:SQL_Interact.WebForm4.WrongFeedbacklbl">
+	<summary>
+WrongFeedbacklbl control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:SQL_Interact.WebForm4.ShowAnstxt">
+	<summary>
+ShowAnstxt control.
 </summary>
 	<remarks>
 Auto-generated field.
@@ -321,14 +425,6 @@ To modify move field declaration from designer file to code-behind file.
 </member><member name="F:SQL_Interact.WebForm4.TakeQuizbtn">
 	<summary>
 TakeQuizbtn control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:SQL_Interact.WebForm4.ShowAnstxt">
-	<summary>
-ShowAnstxt control.
 </summary>
 	<remarks>
 Auto-generated field.
@@ -353,6 +449,54 @@ To modify move field declaration from designer file to code-behind file.
 </member><member name="F:SQL_Interact.WebForm4.ExercisesDB">
 	<summary>
 ExercisesDB control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:SQL_Interact.WebForm3.HiddenField1">
+	<summary>
+HiddenField1 control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:SQL_Interact.WebForm3.Button1">
+	<summary>
+Button1 control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:SQL_Interact.WebForm3.Button2">
+	<summary>
+Button2 control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:SQL_Interact.WebForm3.Label1">
+	<summary>
+Label1 control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:SQL_Interact.WebForm3.Label2">
+	<summary>
+Label2 control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:SQL_Interact.WebForm3.Label3">
+	<summary>
+Label3 control.
 </summary>
 	<remarks>
 Auto-generated field.
@@ -663,6 +807,14 @@ Registerbtn control.
 Auto-generated field.
 To modify move field declaration from designer file to code-behind file.
 </remarks>
+</member><member name="F:SQL_Interact._Default.CheckLessonIDHF">
+	<summary>
+CheckLessonIDHF control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
 </member><member name="F:SQL_Interact._Default.Userlbl">
 	<summary>
 Userlbl control.
@@ -727,9 +879,9 @@ ScrollBarHF control.
 Auto-generated field.
 To modify move field declaration from designer file to code-behind file.
 </remarks>
-</member><member name="F:SQL_Interact._Default.CheckLessonIDHF">
+</member><member name="F:SQL_Interact._Default.WarningPanel">
 	<summary>
-CheckLessonIDHF control.
+WarningPanel control.
 </summary>
 	<remarks>
 Auto-generated field.

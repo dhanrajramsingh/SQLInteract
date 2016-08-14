@@ -12,10 +12,10 @@ Public Class _Default
 
         'Check if any page redirected to homepage with string query parameter of 1
         If String.Equals(CheckLessonIDHF.Value, "1") Then
-            LessonFeedbacklbl.Visible = True
+            WarningPanel.Visible = True
             LessonFeedbacklbl.Text = "This lesson you clicked is not accessible until all preceding lessons are completed!"
         Else
-            LessonFeedbacklbl.Visible = False
+            WarningPanel.Visible = False
         End If
 
         'Retrieve a value to use to scroll the page lower
@@ -423,18 +423,18 @@ Public Class _Default
             QuizFeedLabel.Text = "Sorry you did not attempt any quiz thus far."
         Else
             'join data values with front end items
-            QuizFeedLabel.Text = "The <b>" & lessonName_DB & "</b> Quiz was attempted <b>" & numberOfAttempts & "</b> times" &
-                " with a max score of <b>" & MaxScore & "</b>. The last quiz was attempted <b>"
+            QuizFeedLabel.Text = "<b>" & lessonName_DB & " quiz</b>:" & "<br />Attempted: " & numberOfAttempts & " times" &
+                "<br />Max Score: " & MaxScore & "<br />Last attempt: "
         End If
 
         'process the date value into a statement and assign to label
         Dim dateTakenValue = DateDiff(DateInterval.Minute, row("lastdateTaken"), System.DateTime.Now)
         If dateTakenValue > 1439 Then
-            QuizFeedLabel.Text &= dateTakenValue \ 1440 & " days ago</b>."
+            QuizFeedLabel.Text &= dateTakenValue \ 1440 & " days ago"
         ElseIf dateTakenValue > 60 Then
-            QuizFeedLabel.Text &= dateTakenValue \ 60 & " hours ago</b>."
+            QuizFeedLabel.Text &= dateTakenValue \ 60 & " hours ago"
         Else
-            QuizFeedLabel.Text &= dateTakenValue & " minutes ago</b>."
+            QuizFeedLabel.Text &= dateTakenValue & " minutes ago"
         End If
 
     End Sub

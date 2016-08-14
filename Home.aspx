@@ -13,7 +13,7 @@
             $(window).scrollTop(0);
         }
     });
-</script>
+    </script>
 </asp:Content>
 
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
@@ -32,6 +32,7 @@
 </section>
 
 <div class="row block02">
+    <asp:HiddenField ID="CheckLessonIDHF" runat="server" />
     <div class="col16">
         <section>
 		    <div class="heading">
@@ -102,10 +103,12 @@
                 <asp:HiddenField ID="ScrollBarHF" runat="server" />
             </div>
             
-            <div class="warning">
-                <asp:HiddenField ID="CheckLessonIDHF" runat="server" />
-                <asp:Label ID="LessonFeedbacklbl" runat="server" Text="" />
-            </div>
+            <asp:Panel ID="WarningPanel" runat="server" Visible="False">
+                <div class="alert">
+                    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+                    <asp:Label ID="LessonFeedbacklbl" runat="server" style="font-size:1.3em" />
+                </div>
+            </asp:Panel>
         </div>
     </div>
     
@@ -129,18 +132,16 @@
 		</section>
 
         <section>
-			<div class="heading"><h2>Quiz Feed:</h2></div>
-			    <div class="content">
-                    
-                        <asp:Repeater ID="QuizFeedRepeater" runat="server" OnItemDataBound="QuizFeedSub">
-                            <ItemTemplate>
-                                <asp:Label ID="QuizFeedLbl" runat="server" Text=""></asp:Label><br /><br />
-                            </ItemTemplate>
-                        </asp:Repeater>
-                   
-			            <asp:Label ID="NoQuizlbl" runat="server"></asp:Label>
-                   
-			    </div>
+			<div class="heading">
+                <h2>Quiz Feed:</h2></div>
+			    <div class="content" style="font-size: 1.3em">
+                    <asp:Repeater ID="QuizFeedRepeater" runat="server" OnItemDataBound="QuizFeedSub">
+                        <ItemTemplate>
+                            <asp:Label ID="QuizFeedLbl" runat="server" Text=""></asp:Label><br /><br />
+                        </ItemTemplate>
+                    </asp:Repeater>
+                    <asp:Label ID="NoQuizlbl" runat="server"></asp:Label>
+                </div>
 		</section>
     </div>
 </div>

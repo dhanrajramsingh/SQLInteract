@@ -194,6 +194,7 @@
     <Content Include="Dashboard.aspx" />
     <Content Include="Lesson.aspx" />
     <Content Include="Quiz.aspx" />
+    <Content Include="WebForm3.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="About.aspx.designer.vb">
@@ -279,6 +280,13 @@
     </Compile>
     <Compile Include="Quiz.aspx.vb">
       <DependentUpon>Quiz.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="WebForm3.aspx.designer.vb">
+      <DependentUpon>WebForm3.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebForm3.aspx.vb">
+      <DependentUpon>WebForm3.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
   </ItemGroup>

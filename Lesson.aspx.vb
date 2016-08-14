@@ -9,6 +9,15 @@ Public Class WebForm4
         'create Hidden Field to capture lessonID value
         HFLessonID.Value = Request.QueryString("lessonID")
 
+        If Not (IsPostBack) Then
+            IndexHF.Value = 0
+            TaskNumberHF.Value = 1
+            NumTaskAttemptsHF.Value = 0
+            ActivityNumberlbl.Text = TaskNumberHF.Value
+            Dim Progress As Integer = CInt((IndexHF.Value / 3) * 100)
+            Progresslbl.Text = "<div class=""w3-progressbar w3-blue w3-round-xlarge"" style=""width:" & Progress & "%"">" & " <div class=""w3-center w3-text-white"">" & Progress & "%</div> </div>"
+        End If
+
         'create database connection
         Dim oleDbCon As New OleDbConnection(ConfigurationManager.ConnectionStrings("SQLInteractDB").ConnectionString)
 
@@ -155,10 +164,12 @@ Public Class WebForm4
             End If
         End If
 
+        '-------------------------------------------------------------------------------------------------------------------------
 
     End Sub
 
     Protected Sub Submitbtn_Click(sender As Object, e As EventArgs) Handles Submitbtn.Click
+        InfoPanel.Visible = False
 
         'create database connection
         Dim oleDbCon As New OleDbConnection(ConfigurationManager.ConnectionStrings("SQLInteractDB").ConnectionString)
@@ -246,6 +257,10 @@ Public Class WebForm4
         'Test if answer is correct. If it is, hide answer elements and display results of the query. If it is correct and the last
         'task of the activity, inform user of the quiz and make its button visible. If the answer is incorrect ask user to re-try
         If String.Equals(UCase(UserInputtxt.Text), UCase(Answer)) Then
+            NumTaskAttemptsHF.Value = 0
+            'Calculate activity percentage complete for progress bar
+            Dim Progress As Integer = CInt((TaskNumberHF.Value / 3) * 100)
+            Progresslbl.Text = "<div class=""w3-progressbar w3-blue w3-round-xlarge"" style=""width:" & Progress & "%"">" & " <div class=""w3-center w3-text-white"">" & Progress & "%</div> </div>"
             Submitbtn.Visible = False
             GridView1.Visible = True
             ShowAnsbtn.Visible = False
@@ -263,43 +278,56 @@ Public Class WebForm4
             If IndexHF.Value >= 2 Then
                 UserInputtxt.ReadOnly = True
                 IndexHF.Value = 0
-                Feedbacklbl.ForeColor = Drawing.Color.Green
-                Feedbacklbl.Text = "Hooray you are correct!" & "<br />" & "You are ready to take the quiz."
+                WrongPanel.Visible = False
+                CorrectPanel.Visible = True
+                CorrectFeedbacklbl.Text = "Hooray you are correct!" & "<br />" & "You are ready to take the quiz."
                 NextQuestbtn.Visible = False
                 TakeQuizbtn.Visible = True
 
             Else
-                Feedbacklbl.ForeColor = Drawing.Color.Green
-                Feedbacklbl.Text = "Hooray you are correct!"
+                WrongPanel.Visible = False
+                CorrectPanel.Visible = True
+                CorrectFeedbacklbl.Text = "Hooray you are correct!"
                 NextQuestbtn.Visible = True
             End If
             '---------------------------------------------------------------
         Else
-            Feedbacklbl.ForeColor = Drawing.Color.Red
-            Feedbacklbl.Text = "Sorry, please try again." & "<br />" & "Pay careful attention to the hints and look for extra spaces."
-            'ShowAnsbtn.Visible = True
+            NumTaskAttemptsHF.Value = NumTaskAttemptsHF.Value + 1
+            If NumTaskAttemptsHF.Value = 5 Then
+                ShowAnsbtn.Visible = True
+            End If
+            CorrectPanel.Visible = False
+            WrongPanel.Visible = True
+            WrongFeedbacklbl.Text = "Sorry, please try again." & "<br />" & "Pay careful attention to the hints below and look out for extra spaces in your response."
+
         End If
     End Sub
 
     Protected Sub NextQuestbtn_Click(sender As Object, e As EventArgs) Handles NextQuestbtn.Click
+        InfoPanel.Visible = False
+        WrongPanel.Visible = False
+        CorrectPanel.Visible = False
         GridView1.Visible = False
         ShowAnsbtn.Visible = False
         ShowAnstxt.Visible = False
         Submitbtn.Visible = True
         UserInputtxt.Text = ""
         ShowAnstxt.Text = ""
-
         '----------------------------------------------------------------------------------------------------------------------------
         'Check if this is the last task of the activity
         If IndexHF.Value >= 2 Then
             UserInputtxt.ReadOnly = True
             IndexHF.Value = 0
+            TaskNumberHF.Value = 0
             NextQuestbtn.Visible = False
             TakeQuizbtn.Visible = True
             Submitbtn.Visible = False
         Else
             IndexHF.Value = IndexHF.Value + 1
+            TaskNumberHF.Value = TaskNumberHF.Value + 1
         End If
+        ActivityNumberlbl.Text = TaskNumberHF.Value
+
         '----------------------------------------------------------------------------------------------------------------------------
         'Get the next task's instruction from the database 
         'create database connection
@@ -322,9 +350,9 @@ Public Class WebForm4
 
         Dim Instruction As String = ActivityData.Tables(0).Rows(IndexHF.Value).Item("activityText").ToString
 
-        Feedbacklbl.Text = ""
         ActivityInstructionlbl.Text = Instruction
         NextQuestbtn.Visible = False
+        '-------------------------------------------------------------------------------------------------------------------------
     End Sub
 
     Protected Sub NextPagebtn_Click(sender As Object, e As EventArgs) Handles NextPagebtn.Click
@@ -394,7 +422,9 @@ Public Class WebForm4
         ShowAnstxt.Visible = True
         ShowAnstxt.Text = Answer
         GridView1.Visible = True
-        Feedbacklbl.Text = "Please enter the answer exactly as you see it and submit."
+        CorrectPanel.Visible = False
+        WrongPanel.Visible = False
+        InfoPanel.Visible = True
 
     End Sub
 

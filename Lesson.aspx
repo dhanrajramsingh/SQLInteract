@@ -5,9 +5,11 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
-    <asp:HiddenField ID="IndexHF" runat="server" Value="0" />
-
+    <asp:HiddenField ID="IndexHF" runat="server" />
+    <asp:HiddenField ID="TaskNumberHF" runat="server" />
     <asp:HiddenField ID="HFLessonID" runat="server" />
+    <asp:HiddenField ID="NumTaskAttemptsHF" runat="server" />
+
     <div class="row block02">
         <div class="col16" style="margin: auto">
             <asp:Label ID="Videolbl" runat="server" Text=""></asp:Label>
@@ -41,15 +43,20 @@
                 <div class="heading">
                     <asp:Label ID="ActivityTitlelbl" runat="server"></asp:Label>
                 </div>
-                <div style = "padding-left: 26px;font-size: 1.1em;color: #555555;width:auto;padding-right: 5px">
+                <div style = "padding-left: 26px;font-size: 1.3em;color: #555555;width:auto;padding-right: 5px">
                     <img src="Pics/Select Activity 3.jpg" alt = "Image not found" />
+                    <p>All tasks refer to the table, <b>Animated_Movies</b>, shown above.</p>
                     <br />
-                    <p>&nbsp;</p>
-                    <p>All tasks refer the table, <b>Animated_Movies</b>, shown above.</p>
+                    <p>Activity Progress:</p>
+                </div>
+                <div style=" padding-left: 26px">
+                    <div class="w3-progress-container w3-round-xlarge">
+                        <asp:Label ID="Progresslbl" runat="server" Text=""></asp:Label>
+                    </div>
                 </div>
                 <br />
                 <div class="task">
-                    <b>Task:</b>
+                    <b>Task <asp:Label ID="ActivityNumberlbl" runat="server" Text=""></asp:Label> of 3:</b>
                     <asp:Label ID="ActivityInstructionlbl" runat="server"></asp:Label>
                     <br />
                 </div>
@@ -60,7 +67,7 @@
                         <asp:TextBox ID="UserInputtxt" runat="server" BorderColor="Black" 
                             BorderStyle="Solid" BorderWidth="1px" Rows="5" TextMode="MultiLine" 
                             ToolTip="Do not enter additional spaces in your response" 
-                            Width="235px" BackColor="#D1D1A5" CssClass="textarea"></asp:TextBox>
+                            Width="260px" BackColor="#D1D1A5" CssClass="textarea"></asp:TextBox>
                     </div>
                     <asp:Button ID="Submitbtn" runat="server" BackColor="Gray" 
                         BorderStyle="Solid" BorderWidth="1px" Text="Submit Answer" 
@@ -71,24 +78,41 @@
                     <br />
                 </div>
                 <div class="solution">
-                    <asp:Label ID="Feedbacklbl" runat="server"></asp:Label>
+                    <asp:Panel ID="InfoPanel" runat="server" Visible="False">
+                        <div class="info">
+                            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+                            Please enter the SQL command exactly and submit. 
+                        </div>
+                    </asp:Panel>
+                    <asp:Panel ID="CorrectPanel" runat="server" Visible="False">
+                        <div class="success">
+                            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+                            <asp:Label ID="CorrectFeedbacklbl" runat="server"></asp:Label>
+                        </div>
+                    </asp:Panel>
+                    <asp:Panel ID="WrongPanel" runat="server" Visible="False">
+                        <div class="alert">
+                            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+                            <asp:Label ID="WrongFeedbacklbl" runat="server"></asp:Label>
+                        </div>
+                    </asp:Panel>
                     <br />
+                    <div style="overflow-x:auto;height:auto;width:95%">
+                        <asp:TextBox ID="ShowAnstxt" runat="server" BackColor="#D1D1A5" 
+                            BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" CssClass="textarea" 
+                            ReadOnly="True" Rows="5" TextMode="MultiLine" Visible="False" 
+                            Width="280px"></asp:TextBox>
+                    </div>
                     <asp:Button ID="ShowAnsbtn" runat="server" BackColor="Gray" 
                         BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" CssClass="button" 
                         Text="Show Answer" ToolTip="Click to show answer for the current task." 
                         Visible="False" />
-                    &nbsp;<asp:Button ID="TakeQuizbtn" runat="server" BackColor="Gray" 
+                    &nbsp;
+                    <asp:Button ID="TakeQuizbtn" runat="server" BackColor="Gray" 
                         BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" CssClass="button" 
                         Text="Take Quiz" Visible="False" />
                     <br />
-                    &nbsp;&nbsp;<div style="overflow-x:auto;height:auto;width:95%">
-                        <asp:TextBox ID="ShowAnstxt" runat="server" BackColor="#D1D1A5" 
-                            BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" CssClass="textarea" 
-                            ReadOnly="True" Rows="5" TextMode="MultiLine" Visible="False" 
-                            Width="235px"></asp:TextBox>
-                    </div>
-                    <br />
-                    <br />
+                    
                 </div>
             </asp:Panel>
         

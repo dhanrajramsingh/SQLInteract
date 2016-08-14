@@ -14,6 +14,15 @@ Option Explicit On
 Partial Public Class _Default
 
     '''<summary>
+    '''CheckLessonIDHF control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents CheckLessonIDHF As Global.System.Web.UI.WebControls.HiddenField
+
+    '''<summary>
     '''Userlbl control.
     '''</summary>
     '''<remarks>
@@ -86,13 +95,13 @@ Partial Public Class _Default
     Protected WithEvents ScrollBarHF As Global.System.Web.UI.WebControls.HiddenField
 
     '''<summary>
-    '''CheckLessonIDHF control.
+    '''WarningPanel control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents CheckLessonIDHF As Global.System.Web.UI.WebControls.HiddenField
+    Protected WithEvents WarningPanel As Global.System.Web.UI.WebControls.Panel
 
     '''<summary>
     '''LessonFeedbacklbl control.

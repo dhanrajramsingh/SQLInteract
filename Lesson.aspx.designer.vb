@@ -23,6 +23,15 @@ Partial Public Class WebForm4
     Protected WithEvents IndexHF As Global.System.Web.UI.WebControls.HiddenField
 
     '''<summary>
+    '''TaskNumberHF control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents TaskNumberHF As Global.System.Web.UI.WebControls.HiddenField
+
+    '''<summary>
     '''HFLessonID control.
     '''</summary>
     '''<remarks>
@@ -30,6 +39,15 @@ Partial Public Class WebForm4
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents HFLessonID As Global.System.Web.UI.WebControls.HiddenField
+
+    '''<summary>
+    '''NumTaskAttemptsHF control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents NumTaskAttemptsHF As Global.System.Web.UI.WebControls.HiddenField
 
     '''<summary>
     '''Videolbl control.
@@ -86,6 +104,24 @@ Partial Public Class WebForm4
     Protected WithEvents ActivityTitlelbl As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
+    '''Progresslbl control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents Progresslbl As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''ActivityNumberlbl control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents ActivityNumberlbl As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
     '''ActivityInstructionlbl control.
     '''</summary>
     '''<remarks>
@@ -122,13 +158,58 @@ Partial Public Class WebForm4
     Protected WithEvents NextQuestbtn As Global.System.Web.UI.WebControls.Button
 
     '''<summary>
-    '''Feedbacklbl control.
+    '''InfoPanel control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents Feedbacklbl As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents InfoPanel As Global.System.Web.UI.WebControls.Panel
+
+    '''<summary>
+    '''CorrectPanel control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents CorrectPanel As Global.System.Web.UI.WebControls.Panel
+
+    '''<summary>
+    '''CorrectFeedbacklbl control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents CorrectFeedbacklbl As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''WrongPanel control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents WrongPanel As Global.System.Web.UI.WebControls.Panel
+
+    '''<summary>
+    '''WrongFeedbacklbl control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents WrongFeedbacklbl As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''ShowAnstxt control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents ShowAnstxt As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
     '''ShowAnsbtn control.
@@ -147,15 +228,6 @@ Partial Public Class WebForm4
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents TakeQuizbtn As Global.System.Web.UI.WebControls.Button
-
-    '''<summary>
-    '''ShowAnstxt control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents ShowAnstxt As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
     '''ResultPanel control.

@@ -6,14 +6,18 @@ Public Class WebForm5
     Inherits System.Web.UI.Page
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-
+        
         If Not (IsPostBack) Then
+            QuizIntroPanel.Visible = True
+            QuizPanel.Visible = False
             'Initialise Hidden Fields
             LessonIDHF.Value = Request.Params("lessonID")
             IndexHF.Value = 0
             NumCorrectHF.Value = 0
             MaxIndexHF.Value = 0
             QuestionNumberHF.Value = 1
+            Dim Progress As Integer = CInt((IndexHF.Value / 3) * 100)
+            Progresslbl.Text = "<div class=""w3-progressbar w3-blue w3-round-xlarge"" style=""width:" & Progress & "%"">" & " <div class=""w3-center w3-text-white"">" & Progress & "%</div> </div>"
         End If
 
         'create database connection
@@ -70,7 +74,7 @@ Public Class WebForm5
             TotalQuestionsHF.Value = GetQuizPicData.Tables(0).Rows(0).Item("numQuestions").ToString
             Dim TableName As String = GetQuizPicData.Tables(0).Rows(0).Item("tableName").ToString
 
-            QuizPiclbl.Text = "<img src=""" & PicURL & """ width=""500"" height=""400"" />"
+            QuizImage.ImageUrl = "~/" & PicURL
             TableNamelbl.Text = TableName
             QuestionNumberlbl.Text = "Question " & (QuestionNumberHF.Value) & " out of " & TotalQuestionsHF.Value
 
@@ -240,6 +244,7 @@ Public Class WebForm5
         If String.Equals(UCase(UserInputtxt.Text), UCase(Answer)) Then
             NumCorrectHF.Value = NumCorrectHF.Value + 1
             questionStatus = "correct"
+
             'Test if this is the last question of the quiz
             If IndexHF.Value >= MaxIndexHF.Value Then
                 UserInputtxt.ReadOnly = True
@@ -419,6 +424,15 @@ Public Class WebForm5
             oleDbCon.Close()
         End If
 
+        If IndexHF.Value = MaxIndexHF.Value Then
+            Dim Progress As Integer = CInt((QuestionNumberHF.Value / TotalQuestionsHF.Value) * 100)
+            Progresslbl.Text = "<div class=""w3-progressbar w3-blue w3-round-xlarge"" style=""width:" & Progress & "%"">" & " <div class=""w3-center w3-text-white"">" & Progress & "%</div> </div>"
+        Else
+            Dim Progress As Integer = CInt((IndexHF.Value / TotalQuestionsHF.Value) * 100)
+            Progresslbl.Text = "<div class=""w3-progressbar w3-blue w3-round-xlarge"" style=""width:" & Progress & "%"">" & " <div class=""w3-center w3-text-white"">" & Progress & "%</div> </div>"
+        End If
+        
+
         QuestionNumberlbl.Text = "Question " & (QuestionNumberHF.Value) & " out of " & TotalQuestionsHF.Value
 
     End Sub
@@ -519,5 +533,10 @@ Public Class WebForm5
     Protected Sub Page_UnLoad(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Unload
 
 
+    End Sub
+
+    Protected Sub ConfirmButton_Click(sender As Object, e As EventArgs) Handles ConfirmButton.Click
+        QuizIntroPanel.Visible = False
+        QuizPanel.Visible = True
     End Sub
 End Class

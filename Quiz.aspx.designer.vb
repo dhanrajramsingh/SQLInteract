@@ -77,6 +77,33 @@ Partial Public Class WebForm5
     Protected WithEvents TotalQuestionsHF As Global.System.Web.UI.WebControls.HiddenField
 
     '''<summary>
+    '''QuizIntroPanel control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents QuizIntroPanel As Global.System.Web.UI.WebControls.Panel
+
+    '''<summary>
+    '''ConfirmButton control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents ConfirmButton As Global.System.Web.UI.WebControls.Button
+
+    '''<summary>
+    '''QuizPanel control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents QuizPanel As Global.System.Web.UI.WebControls.Panel
+
+    '''<summary>
     '''QuizTitlelbl control.
     '''</summary>
     '''<remarks>
@@ -86,13 +113,13 @@ Partial Public Class WebForm5
     Protected WithEvents QuizTitlelbl As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
-    '''QuizPiclbl control.
+    '''QuizImage control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents QuizPiclbl As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents QuizImage As Global.System.Web.UI.WebControls.Image
 
     '''<summary>
     '''TableNamelbl control.
@@ -120,6 +147,15 @@ Partial Public Class WebForm5
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents QuizQuestionlbl As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''Progresslbl control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents Progresslbl As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
     '''UserInputtxt control.
