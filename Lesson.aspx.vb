@@ -6,7 +6,7 @@ Public Class WebForm4
     Inherits System.Web.UI.Page
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-        'create Hidden Field to capture lessonID value
+        'Hidden Field used to capture lessonID value from query string
         HFLessonID.Value = Request.QueryString("lessonID")
 
         If Not (IsPostBack) Then
@@ -41,12 +41,16 @@ Public Class WebForm4
 
         Dim Order As String = ""
         Dim Name As String = ""
-        Dim Notes As String = ""
+        Dim Explanation As String = ""
+        Dim Syntax As String = ""
+        Dim Example As String = ""
         'create variables to store specific DataBase data
         If NotesData.Tables(0).Rows.Count <> 0 Then
             Order = NotesData.Tables(0).Rows(0).Item("lessonOrder").ToString
             Name = NotesData.Tables(0).Rows(0).Item("lessonName").ToString
-            Notes = NotesData.Tables(0).Rows(0).Item("lessonNotes").ToString
+            Explanation = NotesData.Tables(0).Rows(0).Item("lessonExplanation").ToString
+            Syntax = NotesData.Tables(0).Rows(0).Item("lessonSyntax").ToString
+            Example = NotesData.Tables(0).Rows(0).Item("lessonExample").ToString
         End If
 
         'close database connection
@@ -54,8 +58,29 @@ Public Class WebForm4
 
         'display lesson number and name
         LessonName.Text = "Lesson " & Order & ": " & Name
+
         'display lesson notes
-        DisplayLesson.Text = Notes
+        If String.Equals(HFLessonID.Value, "1") Then
+            IntroductionPanel.Visible = True
+            SQLLessonPanel.Visible = False
+            Introductionlbl.Text = Explanation
+        Else
+            IntroductionPanel.Visible = False
+            SQLLessonPanel.Visible = True
+            DisplayExplanationlbl.Text = Explanation
+            DisplaySyntaxlbl.Text = Syntax
+            DisplayExamplelbl.Text = Example
+            ExplanationPanel.Visible = True
+            SyntaxPanel.Visible = False
+            ExamplePanel.Visible = False
+            VideoPanel.Visible = False
+            ExplanationLink.BackColor = Drawing.Color.Red
+            SyntaxLink.BackColor = Drawing.Color.Gray
+            ExampleLink.BackColor = Drawing.Color.Gray
+            VideoLink.BackColor = Drawing.Color.Gray
+        End If
+
+
 
         '----------------------------------------------------------------------------------------------------------------------------
         'Get the video for the lesson from the database
@@ -85,7 +110,7 @@ Public Class WebForm4
         oleDbCon.Close()
 
         'display lesson video
-        Videolbl.Text = "<video width=""400"" controls> " & "<source src=""" & Resource & """  type=""video/mp4""> " & "Your browser does not support HTML5 video. " & "</video>"
+        Videolbl.Text = "<video  controls> " & "<source src=""" & Resource & """  type=""video/mp4""> " & "Your browser does not support HTML5 video. " & "</video>"
 
         '----------------------------------------------------------------------------------------------------------------------------
         'Get the 1st activity instruction and answer from the database. This is only done when the page initially loads and not on postbacks
@@ -122,7 +147,7 @@ Public Class WebForm4
 
         '---------------------------------------------------------------------------------------------------------------------------
         'Hide Activity for Introduction Lesson
-        If HFLessonID.Value = 1 Then
+        If String.Equals(HFLessonID.Value, "1") Then
             ActivityPanel.Visible = False
             ResultPanel.Visible = False
             NextPagebtn.Visible = True
@@ -163,8 +188,63 @@ Public Class WebForm4
                 Response.Redirect("Home.aspx?LessonCheck=1&ScrollPos=1")
             End If
         End If
-
         '-------------------------------------------------------------------------------------------------------------------------
+        'Get Quiz ID for the lessonID
+        'open database connection
+        oleDbCon.Open()
+
+        'creates SQL statement to obtain records
+        Dim GetQuizIDSql As String = "SELECT * FROM [Quiz] WHERE lessonID=@lessonID"
+        Dim GetQuizIDCmd As OleDbCommand = New OleDbCommand(GetQuizIDSql, oleDbCon)
+        'define parameters for SQL command
+        GetQuizIDCmd.Parameters.AddWithValue("@lessonID", HFLessonID.Value)
+
+        'create Adapter that grabs data from DB
+        Dim GetQuizIDAdapter As New OleDbDataAdapter
+        'creates DataSet that stores captured DB data
+        Dim GetQuizIDData As New DataSet
+        GetQuizIDAdapter.SelectCommand = GetQuizIDCmd
+        GetQuizIDAdapter.Fill(GetQuizIDData)
+
+        Dim QuizID As String = GetQuizIDData.Tables(0).Rows(0).Item("quizID")
+        'Close database connection
+        oleDbCon.Close()
+
+        'Get number of attempts for Quiz ID just retrieved
+        'open database connection
+        oleDbCon.Open()
+
+        'creates SQL statement to obtain records
+        Dim GetNumAttemptsSql As String = "SELECT * FROM [CountAttempts] WHERE userName=@userName AND quizID=@quizID"
+        Dim GetNumAttemptsCmd As OleDbCommand = New OleDbCommand(GetNumAttemptsSql, oleDbCon)
+        'define parameters for SQL command
+        GetNumAttemptsCmd.Parameters.AddWithValue("@userName", User.Identity.Name)
+        GetNumAttemptsCmd.Parameters.AddWithValue("@quizID", QuizID)
+
+        'create Adapter that grabs data from DB
+        Dim GetNumAttemptsAdapter As New OleDbDataAdapter
+        'creates DataSet that stores captured DB data
+        Dim GetNumAttemptsData As New DataSet
+        GetNumAttemptsAdapter.SelectCommand = GetNumAttemptsCmd
+        GetNumAttemptsAdapter.Fill(GetNumAttemptsData)
+
+        Dim NumAttempts As String = ""
+        If GetNumAttemptsData.Tables(0).Rows.Count = 0 Then
+            NumAttempts = "0"
+        Else
+            NumAttempts = GetNumAttemptsData.Tables(0).Rows(0).Item("numAttempts")
+        End If
+
+        'Close database connection
+        oleDbCon.Close()
+
+        Dim numberAttempts As Integer = Convert.ToInt32(NumAttempts)
+
+        If numberAttempts >= 1 Then
+            TakeQuizbtn.Visible = True
+        Else
+            TakeQuizbtn.Visible = False
+        End If
 
     End Sub
 
@@ -356,42 +436,66 @@ Public Class WebForm4
     End Sub
 
     Protected Sub NextPagebtn_Click(sender As Object, e As EventArgs) Handles NextPagebtn.Click
+
         'create database connection to the SQLInteractDB database
         Dim oleDbConn As New OleDb.OleDbConnection(ConfigurationManager.ConnectionStrings("SQLInteractDB").ConnectionString)
-        'create variable to store SQL statement for inserting record
-        Dim DeleteSql As String = "Delete From CurrentLesson Where userName=@userName"
-        'command links SQL statement and database connection
-        Dim Deletecmd As OleDbCommand = New OleDbCommand(DeleteSql, oleDbConn)
 
-        Deletecmd.CommandType = CommandType.Text
-        'parameters point to actual values stored in front end controls
-        Deletecmd.Parameters.AddWithValue("@userName", User.Identity.Name)
-
-        'open, run SQL statement and close database connection
+        'opens DB connection
         oleDbConn.Open()
-        Deletecmd.ExecuteNonQuery()
+        'create SQL command
+        Dim CurrentLessonSql As String = "SELECT * FROM CurrentLesson WHERE userName=@UserName"
+        'create DB command
+        Dim CurrentLessonCmd As OleDbCommand = New OleDbCommand(CurrentLessonSql, oleDbConn)
+        'define parameters
+        CurrentLessonCmd.Parameters.AddWithValue("@UserName", User.Identity.Name)
+        'create Data Adapter
+        Dim CurrentLessonAdapter As New OleDbDataAdapter
+        'create Data Set
+        Dim CurrentLessonData As New DataSet
+        'use Data Adapter to run the command
+        CurrentLessonAdapter.SelectCommand = CurrentLessonCmd
+        'Data Adapter fills the Data Set with the resulting data
+        CurrentLessonAdapter.Fill(CurrentLessonData)
+        'create variables from data values in data set results
+        Dim currentLessonID = CurrentLessonData.Tables(0).Rows(0).Item("currentLessonID").ToString
         oleDbConn.Close()
 
-        '----------------------------------------------------------------------------------------------------------------------------
+        If String.Equals(currentLessonID, "1") Then
+            'create variable to store SQL statement for inserting record
+            Dim DeleteSql As String = "Delete From CurrentLesson Where userName=@userName"
+            'command links SQL statement and database connection
+            Dim Deletecmd As OleDbCommand = New OleDbCommand(DeleteSql, oleDbConn)
 
-        'create variable to store SQL statement for inserting record
-        Dim AddInitialLessonSql As String = "Insert into CurrentLesson(userName,currentLessonID,numLessonsCompleted) Values(@userName,@currentLessonID,@numCompletedLessons)"
-        'command links SQL statement and database connection
-        Dim addInitialLessoncmd As OleDbCommand = New OleDbCommand(AddInitialLessonSql, oleDbConn)
+            Deletecmd.CommandType = CommandType.Text
+            'parameters point to actual values stored in front end controls
+            Deletecmd.Parameters.AddWithValue("@userName", User.Identity.Name)
 
-        Dim chosenID As Integer = Convert.ToInt32(HFLessonID.Value)
-        chosenID = chosenID + 1
+            'open, run SQL statement and close database connection
+            oleDbConn.Open()
+            Deletecmd.ExecuteNonQuery()
+            oleDbConn.Close()
 
-        addInitialLessoncmd.CommandType = CommandType.Text
-        'parameters point to actual values stored in front end controls
-        addInitialLessoncmd.Parameters.AddWithValue("@userName", User.Identity.Name)
-        addInitialLessoncmd.Parameters.AddWithValue("@currentLessonID", chosenID)
-        addInitialLessoncmd.Parameters.AddWithValue("@numCompletedLessons", 1)
+            '----------------------------------------------------------------------------------------------------------------------------
 
-        'open, run SQL statement and close database connection
-        oleDbConn.Open()
-        addInitialLessoncmd.ExecuteNonQuery()
-        oleDbConn.Close()
+            'create variable to store SQL statement for inserting record
+            Dim AddInitialLessonSql As String = "Insert into CurrentLesson(userName,currentLessonID,numLessonsCompleted) Values(@userName,@currentLessonID,@numCompletedLessons)"
+            'command links SQL statement and database connection
+            Dim addInitialLessoncmd As OleDbCommand = New OleDbCommand(AddInitialLessonSql, oleDbConn)
+
+            Dim chosenID As Integer = Convert.ToInt32(HFLessonID.Value)
+            chosenID = chosenID + 1
+
+            addInitialLessoncmd.CommandType = CommandType.Text
+            'parameters point to actual values stored in front end controls
+            addInitialLessoncmd.Parameters.AddWithValue("@userName", User.Identity.Name)
+            addInitialLessoncmd.Parameters.AddWithValue("@currentLessonID", chosenID)
+            addInitialLessoncmd.Parameters.AddWithValue("@numCompletedLessons", 1)
+
+            'open, run SQL statement and close database connection
+            oleDbConn.Open()
+            addInitialLessoncmd.ExecuteNonQuery()
+            oleDbConn.Close()
+        End If
 
         Response.Redirect("Lesson.aspx?lessonID=2")
     End Sub
@@ -430,5 +534,49 @@ Public Class WebForm4
 
     Protected Sub TakeQuizbtn_Click(sender As Object, e As EventArgs) Handles TakeQuizbtn.Click
         Response.Redirect("Quiz.aspx?lessonID=" & HFLessonID.Value)
+    End Sub
+
+    Protected Sub ExplanationLink_Click(sender As Object, e As EventArgs) Handles ExplanationLink.Click
+        ExplanationLink.BackColor = Drawing.Color.Red
+        SyntaxLink.BackColor = Drawing.Color.Gray
+        ExampleLink.BackColor = Drawing.Color.Gray
+        VideoLink.BackColor = Drawing.Color.Gray
+        ExplanationPanel.Visible = True
+        SyntaxPanel.Visible = False
+        ExamplePanel.Visible = False
+        VideoPanel.Visible = False
+    End Sub
+
+    Protected Sub SyntaxLink_Click(sender As Object, e As EventArgs) Handles SyntaxLink.Click
+        ExplanationLink.BackColor = Drawing.Color.Gray
+        SyntaxLink.BackColor = Drawing.Color.Red
+        ExampleLink.BackColor = Drawing.Color.Gray
+        VideoLink.BackColor = Drawing.Color.Gray
+        ExplanationPanel.Visible = False
+        SyntaxPanel.Visible = True
+        ExamplePanel.Visible = False
+        VideoPanel.Visible = False
+    End Sub
+
+    Protected Sub ExampleLink_Click(sender As Object, e As EventArgs) Handles ExampleLink.Click
+        ExplanationLink.BackColor = Drawing.Color.Gray
+        SyntaxLink.BackColor = Drawing.Color.Gray
+        ExampleLink.BackColor = Drawing.Color.Red
+        VideoLink.BackColor = Drawing.Color.Gray
+        ExplanationPanel.Visible = False
+        SyntaxPanel.Visible = False
+        ExamplePanel.Visible = True
+        VideoPanel.Visible = False
+    End Sub
+
+    Protected Sub VideoLink_Click(sender As Object, e As EventArgs) Handles VideoLink.Click
+        ExplanationLink.BackColor = Drawing.Color.Gray
+        SyntaxLink.BackColor = Drawing.Color.Gray
+        ExampleLink.BackColor = Drawing.Color.Gray
+        VideoLink.BackColor = Drawing.Color.Red
+        ExplanationPanel.Visible = False
+        SyntaxPanel.Visible = False
+        ExamplePanel.Visible = False
+        VideoPanel.Visible = True
     End Sub
 End Class

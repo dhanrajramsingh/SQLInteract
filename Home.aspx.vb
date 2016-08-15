@@ -202,7 +202,7 @@ Public Class _Default
 
         '--------------------------------------------------------------------------------------------------------------------------
         'Get the number of lessons completed and the total number of lessons to find a percentage to represent the user's 
-        'progress. This percentage is used to update the progress bar on the home page.
+        'progress. This percentage is used to update the course progress bar on the home page.
 
         'open database connection
         oleDbCon.Open()
@@ -249,7 +249,30 @@ Public Class _Default
         Dim Progress As Integer = CInt((numCompleted / GetTotalLessonsData.Tables(0).Rows.Count) * 100)
 
         Progresslbl.Text = "<div class=""w3-progressbar w3-blue w3-round-xlarge"" style=""width:" & Progress & "%"">" & " <div class=""w3-center w3-text-white"">" & Progress & "%</div> </div>"
+        '-----------------------------------------------------------------------------------------------------------------------------
 
+        'open database connection
+        oleDbCon.Open()
+
+        'creates SQL statement to obtain records
+        Dim GetTotalUnitLessonsSql As String = "SELECT * FROM [Lessons] WHERE unitID = @unitID"
+        Dim GetTotalUnitLessonsCmd As OleDbCommand = New OleDbCommand(GetTotalUnitLessonsSql, oleDbCon)
+        GetTotalUnitLessonsCmd.Parameters.AddWithValue("@unitID", UnitNumber)
+
+        'create Adapter that grabs data from DB
+        Dim GetTotalUnitLessonsAdapter As New OleDbDataAdapter
+        'creates DataSet that stores captured DB data
+        Dim GetTotalUnitLessonsData As New DataSet
+
+        GetTotalUnitLessonsAdapter.SelectCommand = GetTotalUnitLessonsCmd
+        GetTotalUnitLessonsAdapter.Fill(GetTotalUnitLessonsData)
+
+        'close database connection
+        oleDbCon.Close()
+
+        Dim UnitProgress As Integer = CInt((numCompleted / GetTotalUnitLessonsData.Tables(0).Rows.Count) * 100)
+
+        UnitProgresslbl.Text = "<div class=""w3-progressbar w3-blue w3-round-xlarge"" style=""width:" & UnitProgress & "%"">" & " <div class=""w3-center w3-text-white"">" & UnitProgress & "%</div> </div>"
         '-----------------------------------------------------------------------------------------------------------------------------
 
         'Bind Repeater1 to datasource

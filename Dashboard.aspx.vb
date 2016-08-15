@@ -288,9 +288,52 @@ Public Class WebForm2
 
         Progresslbl.Text = "<div class=""w3-progressbar w3-blue w3-round-xlarge"" style=""width:" & Progress & "%"">" & " <div class=""w3-center w3-text-white"">" & Progress & "%</div> </div>"
         '--------------------------------------------------------------------------------------------------------------------------------------------------------
+        'Calculate percentage of unit completed and display in unit progress bar
+        'open database connection
+        oleDbConn1.Open()
 
+        'creates SQL statement to obtain records
+        Dim GetLessonNameSql As String = "SELECT * FROM [UserCurrentLessonName] WHERE userName=@userName"
+        Dim GetLessonNameCmd As OleDbCommand = New OleDbCommand(GetLessonNameSql, oleDbConn1)
+        'define parameters for SQL command
+        GetLessonNameCmd.Parameters.AddWithValue("@userName", User.Identity.Name)
 
+        'create Adapter that grabs data from DB
+        Dim GetLessonNameAdapter As New OleDbDataAdapter
 
+        'creates DataSet that stores captured DB data
+        Dim GetLessonNameData As New DataSet
+        GetLessonNameAdapter.SelectCommand = GetLessonNameCmd
+        GetLessonNameAdapter.Fill(GetLessonNameData)
+
+        'create variables to store specific DataBase data
+        Dim UnitNumber = GetLessonNameData.Tables(0).Rows(0).Item("unitID").ToString
+        
+        'close database connection
+        oleDbConn1.Close()
+
+        'open database connection
+        oleDbConn1.Open()
+
+        'creates SQL statement to obtain records
+        Dim GetTotalUnitLessonsSql As String = "SELECT * FROM [Lessons] WHERE unitID = @unitID"
+        Dim GetTotalUnitLessonsCmd As OleDbCommand = New OleDbCommand(GetTotalUnitLessonsSql, oleDbConn1)
+        GetTotalUnitLessonsCmd.Parameters.AddWithValue("@unitID", UnitNumber)
+
+        'create Adapter that grabs data from DB
+        Dim GetTotalUnitLessonsAdapter As New OleDbDataAdapter
+        'creates DataSet that stores captured DB data
+        Dim GetTotalUnitLessonsData As New DataSet
+
+        GetTotalUnitLessonsAdapter.SelectCommand = GetTotalUnitLessonsCmd
+        GetTotalUnitLessonsAdapter.Fill(GetTotalUnitLessonsData)
+
+        'close database connection
+        oleDbConn1.Close()
+
+        Dim UnitProgress As Integer = CInt((numCompleted / GetTotalUnitLessonsData.Tables(0).Rows.Count) * 100)
+
+        UnitProgresslbl.Text = "<div class=""w3-progressbar w3-blue w3-round-xlarge"" style=""width:" & UnitProgress & "%"">" & " <div class=""w3-center w3-text-white"">" & UnitProgress & "%</div> </div>"
     End Sub
 
     Public Sub QuizHistorySub(ByVal sender As Object, ByVal e As System.Web.UI.WebControls.RepeaterItemEventArgs)

@@ -34,6 +34,19 @@
         </div>
         <div class="col02"></div>
     </div>
+    <!-----------------------------------Display unit progress------------------------------>
+    <div class="row block02">
+        <div class="col02"></div>
+        <div class="col13">
+             <div class="dashboard" style="text-align: center; margin-bottom: 20px">
+                    <p>UNIT PROGRESS</p>
+             </div>
+            <div class="w3-progress-container w3-round-xlarge">
+                <asp:Label ID="UnitProgresslbl" runat="server" Text=""></asp:Label>
+            </div>
+        </div>
+        <div class="col02"></div>
+    </div>
     <!--------------------------------------------Quiz History row------------------------------------>
     <div class="row block03">
         <div class="dashboard" style="text-align: center; margin-bottom: 8px;margin-top:20px">
@@ -74,7 +87,7 @@
             <asp:Panel ID="QuizHistoryPanel" runat="server">
                 <div class="datatable">
                     <div style="overflow-x:auto;">
-                        <table class="table" style="font-size:0.85em; width: 95%">
+                        <table class="table" style="font-size:1.2em; width: 95%">
                             <tr>
                                 <th>Attempt</th>
                                 <th>Score</th>
@@ -155,7 +168,7 @@
                 <asp:Panel ID="QuizAttemptPanel" runat="server">
                 <div class="datatable">
                     <div style="overflow-x:auto;">
-                        <table class="table" style="font-size:0.85em; width: 95%">
+                        <table class="table" style="font-size:1.0em; width: 95%">
                             <tr>
                                 <th>Question Order</th>
                                 <th>Question</th>

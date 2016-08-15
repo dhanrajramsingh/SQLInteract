@@ -8,6 +8,7 @@ Public Class WebForm5
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         
         If Not (IsPostBack) Then
+            InfoPanel.Visible = False
             QuizIntroPanel.Visible = True
             QuizPanel.Visible = False
             'Initialise Hidden Fields
@@ -248,13 +249,17 @@ Public Class WebForm5
             'Test if this is the last question of the quiz
             If IndexHF.Value >= MaxIndexHF.Value Then
                 UserInputtxt.ReadOnly = True
-                NextLessonbtn.Visible = True
                 Submitbtn.Visible = False
                 QuizSummaryPanel.Visible = True
 
                 'Calculate score of the quiz
                 Dim Score As Integer = CInt((NumCorrectHF.Value / GetAnswerData.Tables(0).Rows.Count) * 100)
-                Feedbacklbl.Text &= " Score = " & Score
+
+                If Score >= 50 Then
+                    NextLessonbtn.Visible = True
+                Else
+                    InfoPanel.Visible = True
+                End If
 
                 Feedbacklbl.Text = "Number of questions correct = " & NumCorrectHF.Value & " out of " & GetAnswerData.Tables(0).Rows.Count & " questions." &
                                     " Your score is " & Score & "%."
@@ -303,12 +308,17 @@ Public Class WebForm5
             'Test if this is the last question of the quiz
             If IndexHF.Value >= MaxIndexHF.Value Then
                 UserInputtxt.ReadOnly = True
-                NextLessonbtn.Visible = True
                 Submitbtn.Visible = False
                 QuizSummaryPanel.Visible = True
 
                 'Calculate score of the quiz
                 Dim Score As Integer = CInt((NumCorrectHF.Value / GetAnswerData.Tables(0).Rows.Count) * 100)
+
+                If Score >= 50 Then
+                    NextLessonbtn.Visible = True
+                Else
+                    InfoPanel.Visible = True
+                End If
 
                 Feedbacklbl.Text = "Number of questions correct = " & NumCorrectHF.Value & " out of " & GetAnswerData.Tables(0).Rows.Count & " questions." &
                                    " Your score is " & Score & "%."
@@ -352,7 +362,7 @@ Public Class WebForm5
                 IndexHF.Value = IndexHF.Value + 1
             End If
 
-        End If
+            End If
 
         'Retrieve next question from database.
         'open database connection
@@ -538,5 +548,9 @@ Public Class WebForm5
     Protected Sub ConfirmButton_Click(sender As Object, e As EventArgs) Handles ConfirmButton.Click
         QuizIntroPanel.Visible = False
         QuizPanel.Visible = True
+    End Sub
+
+    Protected Sub GoLessonbtn_Click(sender As Object, e As EventArgs) Handles GoLessonbtn.Click
+        Response.Redirect("Lesson.aspx?lessonID=" & LessonIDHF.Value)
     End Sub
 End Class

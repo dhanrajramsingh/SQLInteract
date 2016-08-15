@@ -152,6 +152,13 @@
         .zerogrid .offset13,
         .zerogrid .offset14,
         .zerogrid .offset15 { margin-left: 0; }
+        
+        .w3-navbar li a, .w3-navitem
+        {
+            display: block;
+            padding: auto;
+            font-size: 0.7em;
+        }
     }
 
 

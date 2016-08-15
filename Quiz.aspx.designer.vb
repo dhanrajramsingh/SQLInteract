@@ -176,6 +176,24 @@ Partial Public Class WebForm5
     Protected WithEvents Submitbtn As Global.System.Web.UI.WebControls.Button
 
     '''<summary>
+    '''InfoPanel control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents InfoPanel As Global.System.Web.UI.WebControls.Panel
+
+    '''<summary>
+    '''GoLessonbtn control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents GoLessonbtn As Global.System.Web.UI.WebControls.Button
+
+    '''<summary>
     '''QuizSummaryPanel control.
     '''</summary>
     '''<remarks>

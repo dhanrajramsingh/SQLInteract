@@ -10,11 +10,6 @@
     <asp:HiddenField ID="HFLessonID" runat="server" />
     <asp:HiddenField ID="NumTaskAttemptsHF" runat="server" />
 
-    <div class="row block02">
-        <div class="col16" style="margin: auto">
-            <asp:Label ID="Videolbl" runat="server" Text=""></asp:Label>
-        </div>
-    </div>
     <div class="row block01">
         <div class="col16">
         <section>
@@ -24,8 +19,33 @@
                 </div>
                 <br />
                 <div class="notes">
-                    <asp:Label ID="DisplayLesson" runat="server"></asp:Label>
+                    <asp:Panel ID="SQLLessonPanel" runat="server" Visible="False">
+                        <ul class="w3-navbar w3-grey">
+                            <li><asp:LinkButton ID="ExplanationLink" runat="server" CssClass="w3-text-white">Explanation</asp:LinkButton></li>
+                            <li><asp:LinkButton ID="SyntaxLink" runat="server" CssClass="w3-text-white">Syntax</asp:LinkButton></li>
+                            <li><asp:LinkButton ID="ExampleLink" runat="server" CssClass="w3-text-white">Example</asp:LinkButton></li>
+                            <li><asp:LinkButton ID="VideoLink" runat="server" CssClass="w3-text-white">Video</asp:LinkButton></li>
+                        </ul>
+                        <br />
+                        <asp:Panel ID="ExplanationPanel" runat="server" Visible="False">
+                            <asp:Label ID="DisplayExplanationlbl" runat="server"></asp:Label>
+                        </asp:Panel>
+                        <asp:Panel ID="SyntaxPanel" runat="server" Visible="False">
+                            <asp:Label ID="DisplaySyntaxlbl" runat="server"></asp:Label>
+                        </asp:Panel>
+                        <asp:Panel ID="ExamplePanel" runat="server" Visible="False">
+                            <asp:Label ID="DisplayExamplelbl" runat="server"></asp:Label>
+                        </asp:Panel>
+                    </asp:Panel>
+                    <asp:Panel ID="IntroductionPanel" runat="server" Visible="False">
+                        <asp:Label ID="Introductionlbl" runat="server"></asp:Label>
+                    </asp:Panel>
                 </div>
+                <asp:Panel ID="VideoPanel" runat="server" Visible="False">
+                    <div class="col16" style="margin: auto;">
+                        <asp:Label ID="Videolbl" runat="server" Text=""></asp:Label>
+                    </div>
+                </asp:Panel>
             </div>
         </section>
         </div>

@@ -56,10 +56,8 @@
 	
 	<nav>
 		<ul>
-			<li>
-                <asp:LinkButton ID="Homelink" runat="server" PostBackUrl="~/Home.aspx">Home</asp:LinkButton></li>
-			<li>
-                <asp:LinkButton ID="Dashboardlink" runat="server" PostBackUrl="~/Dashboard.aspx">Dashboard</asp:LinkButton></li>
+			<li><asp:LinkButton ID="Homelink" runat="server" PostBackUrl="~/Home.aspx" Font-Size="1.6em">Home</asp:LinkButton></li>
+			<li><asp:LinkButton ID="Dashboardlink" runat="server" PostBackUrl="~/Dashboard.aspx" Font-Size="1.6em">Dashboard</asp:LinkButton></li>
         </ul>
 	</nav>
             

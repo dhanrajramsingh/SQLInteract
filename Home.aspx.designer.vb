@@ -122,6 +122,15 @@ Partial Public Class _Default
     Protected WithEvents Progresslbl As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
+    '''UnitProgresslbl control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents UnitProgresslbl As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
     '''CurrentLessonNamelbl control.
     '''</summary>
     '''<remarks>

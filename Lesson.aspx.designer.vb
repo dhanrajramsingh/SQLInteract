@@ -50,15 +50,6 @@ Partial Public Class WebForm4
     Protected WithEvents NumTaskAttemptsHF As Global.System.Web.UI.WebControls.HiddenField
 
     '''<summary>
-    '''Videolbl control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents Videolbl As Global.System.Web.UI.WebControls.Label
-
-    '''<summary>
     '''LessonName control.
     '''</summary>
     '''<remarks>
@@ -68,13 +59,139 @@ Partial Public Class WebForm4
     Protected WithEvents LessonName As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
-    '''DisplayLesson control.
+    '''SQLLessonPanel control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents DisplayLesson As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents SQLLessonPanel As Global.System.Web.UI.WebControls.Panel
+
+    '''<summary>
+    '''ExplanationLink control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents ExplanationLink As Global.System.Web.UI.WebControls.LinkButton
+
+    '''<summary>
+    '''SyntaxLink control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents SyntaxLink As Global.System.Web.UI.WebControls.LinkButton
+
+    '''<summary>
+    '''ExampleLink control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents ExampleLink As Global.System.Web.UI.WebControls.LinkButton
+
+    '''<summary>
+    '''VideoLink control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents VideoLink As Global.System.Web.UI.WebControls.LinkButton
+
+    '''<summary>
+    '''ExplanationPanel control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents ExplanationPanel As Global.System.Web.UI.WebControls.Panel
+
+    '''<summary>
+    '''DisplayExplanationlbl control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents DisplayExplanationlbl As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''SyntaxPanel control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents SyntaxPanel As Global.System.Web.UI.WebControls.Panel
+
+    '''<summary>
+    '''DisplaySyntaxlbl control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents DisplaySyntaxlbl As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''ExamplePanel control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents ExamplePanel As Global.System.Web.UI.WebControls.Panel
+
+    '''<summary>
+    '''DisplayExamplelbl control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents DisplayExamplelbl As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''IntroductionPanel control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents IntroductionPanel As Global.System.Web.UI.WebControls.Panel
+
+    '''<summary>
+    '''Introductionlbl control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents Introductionlbl As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''VideoPanel control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents VideoPanel As Global.System.Web.UI.WebControls.Panel
+
+    '''<summary>
+    '''Videolbl control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents Videolbl As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
     '''NextPagebtn control.

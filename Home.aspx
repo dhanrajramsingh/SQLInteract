@@ -123,6 +123,15 @@
 		</section>
 
         <section>
+			<div class="heading"><h2>Unit Progress</h2></div>
+			<div class="content">
+				<div class="w3-progress-container w3-round-xlarge">
+                    <asp:Label ID="UnitProgresslbl" runat="server" Text=""></asp:Label>
+                </div>
+			</div>
+		</section>
+
+        <section>
 			<div class="heading"><h2>Your current lesson is:</h2></div>
 			<div class="content">
             <div class="courseheading">

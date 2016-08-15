@@ -41,7 +41,7 @@
                     <br />
                 </div>
                 <div class="col10" style="padding-left: 18px;">
-                    <span style="font-size: 1.3em;color: #555555;"><p>Quiz Progress:</p></span>
+                    <span style="font-size: 1.3em;color: #555555;">Quiz Progress:</span>
                     <div class="w3-progress-container w3-round-xlarge">
                         <asp:Label ID="Progresslbl" runat="server" Text=""></asp:Label>
                     </div>
@@ -63,6 +63,13 @@
                         BorderStyle="Solid" BorderWidth="1px" Text="Submit Answer" 
                         CssClass="button" BorderColor="#999999" />
                     <br />
+                    <asp:Panel ID="InfoPanel" runat="server" Visible="False">
+                        <div class="info">
+                            <p>Good attempt, however before you can continue to the next lesson,<br />
+                            you need a minimum score of 50. Click "OK" to confirm and go back to the lesson page. </p><br />
+                            <asp:Button ID="GoLessonbtn" runat="server" Text="OK" CssClass="button" style="margin:auto"/>
+                        </div>
+                    </asp:Panel>
                     <br />
                     <asp:Panel ID="QuizSummaryPanel" runat="server" Visible="False">
                         <asp:Label ID="SummaryTitlelbl" runat="server" Text="Quiz Summary:"></asp:Label>
